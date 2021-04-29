@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components/native';
-import TopBar from "../components/TobBar";
 
 const Container = styled.View`
   flex:1;
@@ -15,13 +14,10 @@ const StyledText=styled.Text`
   font-size: 30px;
   color: #ffffff;
 `;
-export const EditPage =() => {
+export const MyPage =() => {
     return (
-        <ParentContainer>
-            <TopBar/>
-            <Container>
-                <StyledText>EditPage</StyledText>
-            </Container>
-        </ParentContainer>
+        <Container>
+            <StyledText>MyPage</StyledText>
+        </Container>
     );
 };
