@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {NavigationContainer} from '@react-navigation/native';
 import TabNavigation from '../src/navigations/Tab';
+import {View} from "react-native";
 
 const Container = styled.View`
   flex: 1;
