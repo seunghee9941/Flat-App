@@ -22,6 +22,7 @@ const StyledView=styled.View`
   justify-content: center;
   margin:5%;
 `;
+
 const itemsPerRow = 2;
 export const CommunityPage =() => {
     const renderAlbum=({item})=>(
@@ -33,10 +34,7 @@ export const CommunityPage =() => {
             </TouchableOpacity>
         </StyledView>
     )
-
-
     return (
-
         <ParentContainer>
             <TopBar/>
             <FlatList data={albums}
@@ -119,7 +117,5 @@ const albums = [
         artist:'보경',
         liked: true
     },
-
-
 ];
 

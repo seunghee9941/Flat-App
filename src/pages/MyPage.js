@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native';
+import {Button} from "react-native";
 
 const Container = styled.View`
   flex:1;
@@ -14,10 +15,12 @@ const StyledText=styled.Text`
   font-size: 30px;
   color: #ffffff;
 `;
-export const MyPage =() => {
+export const MyPage =({navigation}) => {
+
     return (
         <Container>
             <StyledText>MyPage</StyledText>
+            <Button onPress={()=> navigation.navigate('Setting')}  title="프로필 편집"/>
         </Container>
     );
 };

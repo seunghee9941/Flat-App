@@ -101,14 +101,14 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
                 {played ?
                   <MaterialCommunityIcons name="pause" size={32} color="white" />
                   :
-                  <MaterialCommunityIcons name="play" size={16} color="white" /> //15, 18
+                  <MaterialCommunityIcons name="play" size={16} color="white" />
                 }
               </TouchableOpacity>
             </PlayButton>
           </AlbumCover>
           <AlbumText isHorizontal={true}>
-            <Text style={{ fontWeight: "bold", fontSize: 16}}>{title}</Text>
-            <Text style={{ fontSize: 12 }}>{artist} {time}</Text>
+            <Text style={{ fontWeight: "bold", fontSize: 16 ,color:"white" }}>{title}</Text>
+            <Text style={{ fontSize: 12 ,color:"white"}}>{artist} {time}</Text>
           </AlbumText>
         </AlbumHorizontalContainer>
         :
