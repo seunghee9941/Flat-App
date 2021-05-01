@@ -18,6 +18,7 @@ const GradientButton = styled(LinearGradient)`
     border-radius: 6px;
     align-items: center;
     justify-content: center;
+    margin: 15px;
 `;
 
 const LargeButton = styled(GradientButton)`

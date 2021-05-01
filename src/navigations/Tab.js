@@ -3,9 +3,13 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons, Ionicons} from "@expo/vector-icons";
 import {HomePage} from "../pages/HomePage";
 import {BgmPage} from "../pages/BgmPage";
-import {EditPage} from "../pages/EditPage";
+import {ComposePage} from "../pages/ComposePage";
 import {CommunityPage} from "../pages/CommunityPage";
+import {CommunityDetailPage} from "../pages/CommunityDetailPage";
 import {MyPage} from "../pages/MyPage";
+import {EditPage} from "../pages/EditPage";
+import {StackNavigation} from "./CommunityStack";
+
 const TabIcon = ({name, size, color})=> {
     return <MaterialCommunityIcons name={name} size={size} color={color} />;
 };
@@ -34,10 +38,11 @@ const TabNavigation = () => {
                 tabBarIcon: props=> TabIcon2({...props, name: props.focused? 'musical-notes':'musical-notes-outline',}),
                 tabBarLabel: '무료 BGM'
             }}/>
-            <Tab.Screen name="EditPage" component={EditPage} options={{
+            {/*실험중.. 나중에 ComposePage로 바꿔야함!*/}
+            <Tab.Screen name="작곡" component={ComposePage} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'plus-circle':'plus-circle-outline',}),
             }}/>
-            <Tab.Screen name="CommunityPage" component={CommunityPage} options={{
+            <Tab.Screen name="CommunityPage" component={StackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'comment-processing':'comment-outline',}),
                 tabBarLabel: '커뮤니티'
             }}/>
