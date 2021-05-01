@@ -12,7 +12,8 @@ const StackNavigation = () => {
                 cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                 // gestureDirection: "horizontal-inverted",
                 headerStyle:{
-                    backgroundColor: '#101010'
+                    backgroundColor: '#101010',
+                    elevation: 0
                 },
             }}>
                 <MyPageStack.Screen name="MyPage" component={MyPage}/>

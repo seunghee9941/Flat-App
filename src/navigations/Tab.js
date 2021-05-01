@@ -5,10 +5,13 @@ import {HomePage} from "../pages/HomePage";
 import {BgmPage} from "../pages/BgmPage";
 import {ComposePage} from "../pages/ComposePage";
 import {CommunityPage} from "../pages/CommunityPage";
+import {CommunityDetailPage} from "../pages/CommunityDetailPage";
 import {MyPage} from "../pages/MyPage";
 import {EditPage} from "../pages/EditPage";
+import {StackNavigation} from "./CommunityStack";
 import Stack from "./MyPageStack";
 import RecordPage from "../pages/RecordPage";
+
 const TabIcon = ({name, size, color})=> {
     return <MaterialCommunityIcons name={name} size={size} color={color} />;
 };
@@ -40,10 +43,10 @@ const TabNavigation = () => {
                 tabBarLabel: '무료 BGM'
             }}/>
             {/*실험중.. 나중에 ComposePage로 바꿔야함!*/}
-            <Tab.Screen name="작곡" component={ComposePage} options={{
+            <Tab.Screen name="작곡" component={EditPage} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'plus-circle':'plus-circle-outline',}),
             }}/>
-            <Tab.Screen name="CommunityPage" component={CommunityPage} options={{
+            <Tab.Screen name="CommunityPage" component={StackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'comment-processing':'comment-outline',}),
                 tabBarLabel: '커뮤니티'
             }}/>

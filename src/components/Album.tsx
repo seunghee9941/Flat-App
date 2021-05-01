@@ -65,11 +65,6 @@ const AlbumImage = styled.Image<StyleProps3>`
 
 const PlayButton = styled.View`
   position: absolute;
-  top: 11px;
-  left: 13px;
-  
-  width: 32px;
-  height: 32px;
 `;
 
 const LikedContainer = styled.View`
@@ -119,11 +114,10 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
                 {played ?
-                  <MaterialCommunityIcons name="pause" size={70} color="white" />
+                  <MaterialCommunityIcons name="pause" size={75} color="white" />
                   :
-                  <MaterialCommunityIcons name="play" size={65} color="white" /> //60,72
+                  <MaterialCommunityIcons name="play" size={78} color="white" />
                 }
-
               </TouchableOpacity>
             </PlayButton>
             }
