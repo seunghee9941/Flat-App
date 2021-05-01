@@ -13,7 +13,7 @@ import * as FileSystem from "expo-file-system/build/FileSystem";
 // 녹음에서 취소버튼 -> ComposePage
 //보내야할 것은 몇분몇초
 
-export const RecordPage = ({ toggleButton }) => {
+export const RecordPage = ({ toggleButton, navigation }) => {
     const [recording, setRecording] = React.useState();
     const [sound, setSound] = React.useState();
     const [state, setState] = React.useState({recordingT: false});
@@ -25,6 +25,34 @@ export const RecordPage = ({ toggleButton }) => {
             setState({recordingT: true})
         }
     };
+
+    useLayoutEffect(()=> {
+        navigation.setOptions({
+            headerTintColor: '#ffffff',
+
+            headerLeft: ({onPress, tintColor}) => {
+                return (
+                    <MaterialCommunityIcons
+                        name="keyboard-backspace"
+                        size={30}
+                        style={{marginLeft:11}}
+                        color={tintColor}
+                        onPress={onPress}
+                    />
+                );
+            },
+            headerRight: ({tintColor}) => (
+                <AntDesign
+                    name="check"
+                    size={30}
+                    style={{marginRight:11}}
+                    color={tintColor}
+                    onPress={()=> navigation.navigate("EditPage")}
+                />
+            ),
+        });
+    },[]);
+
 
     async function init() {
         await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'records/');

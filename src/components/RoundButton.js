@@ -32,7 +32,7 @@ const ButtonText = styled.Text`
   color: #ffffff;
 `;
 
-export const RoundButton = ({ state, name }) => {
+export const RoundButton = ({ state, name, pageName, nav }) => {
     return (
         <>
             {state === 'GRAY_SMALL' &&
@@ -59,7 +59,7 @@ export const RoundButton = ({ state, name }) => {
             }
             {state === 'GRAD_LARGE' &&
             <GradientButton start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={ ['#54DE51','#51CDDE'] }>
-                <Pressable>
+                <Pressable onPress={() => nav.navigate(pageName)}>
                     {({ pressed }) => (
                         <LargeButton
                             start={{x: 0, y: 0}} end={{x: 1, y: 1}}
