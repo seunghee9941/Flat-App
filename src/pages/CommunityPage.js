@@ -3,9 +3,6 @@ import styled from 'styled-components/native';
 import TopBar from "../components/TobBar";
 import { FlatList, TouchableOpacity } from "react-native";
 import { Album } from "../components/Album";
-import { createStackNavigator } from "@react-navigation/stack";
-import { CommunityDetailPage } from "./CommunityDetailPage";
-import {NavigationContainer} from "@react-navigation/native";
 
 const Container = styled.View`
   justify-content: center;
@@ -118,7 +115,5 @@ const albums = [
         artist:'보경',
         liked: true
     },
-
-
 ];
 

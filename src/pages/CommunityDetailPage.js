@@ -16,7 +16,7 @@ const HeaderContainer = styled.View`
 `;
 
 const AlbumContainer = styled.View`
-    width: 95%;
+    width: 90%;
     position: relative;
     margin-top: 20px;
     padding-bottom: 20px;
@@ -26,8 +26,10 @@ const AlbumContainer = styled.View`
 `;
 
 const IconContainer = styled.View`
+    width: 50px;
     position: absolute;
     flex-direction: row;
+    justify-content: space-between;
     right: 10%;
     top: 335px;
 `;

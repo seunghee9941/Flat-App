@@ -2,7 +2,6 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {CommunityDetailPage} from "../pages/CommunityDetailPage";
 import React from "react";
 import {CommunityPage} from "../pages/CommunityPage";
-import TobBar from "../components/TobBar";
 
 const Stack = createStackNavigator();
 

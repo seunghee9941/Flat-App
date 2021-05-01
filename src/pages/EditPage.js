@@ -1,13 +1,9 @@
-
-// 작곡 페이지
-
 import React from "react";
 import {View, Dimensions, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import TopBar2 from "../components/TobBar2";
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import TopBar from "../components/TobBar";
-import { EffectButton } from '../components/EffectButton';
+import { EffectButtons } from '../components/EffectButtons';
 
 const FirstRoute = () => (
     <View style={[styles.scene]} />
@@ -15,13 +11,13 @@ const FirstRoute = () => (
 
 const SecondRoute = () => (
     <View style={[styles.scene]}>
-        <EffectButton effects={["Piano", "Drum", "Acoustic", "Electronic", "Saxophone", "Violin"]}/>
+        <EffectButtons effects={["Piano", "Drum", "Acoustic", "Electronic", "Saxophone", "Violin"]}/>
     </View>
 );
 
 const ThirdRoute = () => (
     <View style={[styles.scene]}>
-        <EffectButton effects={["BALLAD", "R&B", "Rock", "HIP HOP", "JAZZ", "DANCE"]}/>
+        <EffectButtons effects={["BALLAD", "R&B", "Rock", "HIP HOP", "JAZZ", "DANCE"]}/>
     </View>
 );
 
@@ -37,15 +33,12 @@ const Container = styled.View`
   flex-direction: row;
   border-bottom-color: #8E8E8E;
 `;
+
 const ParentContainer = styled.View`
   flex: 1;
 `;
-const StyledText=styled.Text`
-  font-size: 30px;
-  color: #ffffff;
-`;
-export const EditPage =() => {
 
+export const EditPage =() => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: '악보편집'},
@@ -81,6 +74,7 @@ export const EditPage =() => {
         </ParentContainer>
     );
 };
+
 const styles = StyleSheet.create({
     scene: {
         flex: 1,

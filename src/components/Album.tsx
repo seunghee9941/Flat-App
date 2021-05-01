@@ -102,8 +102,8 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             </PlayButton>
           </AlbumCover>
           <AlbumText isHorizontal={true}>
-            <Text style={{ fontWeight: "bold", fontSize: 16}}>{title}</Text>
-            <Text style={{ fontSize: 12 }}>{artist} {time}</Text>
+            <Text style={{ fontWeight: "bold", fontSize: 16 ,color:"white" }}>{title}</Text>
+            <Text style={{ fontSize: 12 ,color:"white"}}>{artist} {time}</Text>
           </AlbumText>
         </AlbumHorizontalContainer>
         :
