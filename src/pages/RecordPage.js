@@ -16,8 +16,6 @@ import * as FileSystem from "expo-file-system/build/FileSystem";
 export const RecordPage = ({ toggleButton }) => {
     const [recording, setRecording] = React.useState();
     const [sound, setSound] = React.useState();
-   // const recordUri = '';
-
     const [state, setState] = React.useState({recordingT: false});
 
     toggleButton = () => {

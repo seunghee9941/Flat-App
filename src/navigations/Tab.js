@@ -7,6 +7,8 @@ import {ComposePage} from "../pages/ComposePage";
 import {CommunityPage} from "../pages/CommunityPage";
 import {MyPage} from "../pages/MyPage";
 import {EditPage} from "../pages/EditPage";
+import Stack from "./MyPageStack";
+import RecordPage from "../pages/RecordPage";
 const TabIcon = ({name, size, color})=> {
     return <MaterialCommunityIcons name={name} size={size} color={color} />;
 };
@@ -19,7 +21,9 @@ const TabNavigation = () => {
     return (
         <Tab.Navigator initialRouteName="Settings"
            tabBarOptions={{
+               keyboardHidesTabBar: true,
                style:{
+                   position: 'absolute',
                    backgroundColor: '#101010',
                    borderTopColor: '#8E8E8E',
                    borderTopWidth: 1,
@@ -43,7 +47,7 @@ const TabNavigation = () => {
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'comment-processing':'comment-outline',}),
                 tabBarLabel: '커뮤니티'
             }}/>
-            <Tab.Screen name="MyPage" component={MyPage} options={{
+            <Tab.Screen name="MyPage" component={Stack} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'account':'account-outline',}),
                 tabBarLabel: '마이페이지'
             }}/>

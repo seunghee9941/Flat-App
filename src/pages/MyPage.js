@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native';
+import {Button} from "react-native";
 import {
     FlatList,
     Image,
@@ -11,7 +12,7 @@ import TopBar from "../components/TobBar";
 import {Album} from "../components/Album";
 
 //받아와야할 것, UserName, Image, introduce, 공개 허용한 곡의 정보, 좋아요 등록한 곡의 정보
-export const MyPage =() => {
+export const MyPage =({navigation}) => {
     return (
     <Container>
         <Header/>
@@ -23,7 +24,7 @@ export const MyPage =() => {
                 <UserThirdView>
                     <Text style={{color : '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                        <View style={{width:100}}>
-                           <ProfileButton title={"프로필편집"} color='#012345' style={{borderColor:'white', borderWidth:5}}/>
+                           <ProfileButton  onPress={()=> navigation.navigate('Setting')} title={"프로필편집"} color='#012345' style={{borderColor:'white', borderWidth:5}}/>
                        </View>
                 </UserThirdView>
             </UserSecondView>
