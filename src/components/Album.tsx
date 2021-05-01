@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import {Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import styled, { css } from "styled-components/native";
 import * as url from "url";
@@ -28,7 +28,7 @@ type AlbumProps = {
 
 const ALBUM_SIZE = {
   'LIKE_SMALL': 140,
-  'LIKE_LARGE': 150,
+  'LIKE_LARGE': (Dimensions.get('window').width/2-40),
   'PLAY_SMALL': 40,
   'PLAY_LARGE': 330,
 }
@@ -99,7 +99,7 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
                 {played ?
-                  <MaterialCommunityIcons name="pause" size={32} color="white" />
+                  <MaterialCommunityIcons name="pause" size={16} color="white" />
                   :
                   <MaterialCommunityIcons name="play" size={16} color="white" />
                 }
@@ -123,7 +123,6 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
                   :
                   <MaterialCommunityIcons name="play" size={65} color="white" /> //60,72
                 }
-
               </TouchableOpacity>
             </PlayButton>
             }

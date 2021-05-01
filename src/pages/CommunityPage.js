@@ -8,6 +8,7 @@ import GridView from 'react-native-gridview';
 const Container = styled.View`
   justify-content: center;
   align-items: center;
+  margin: 20% 2% 0 2%;
 `;
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
@@ -20,7 +21,7 @@ const StyledText=styled.Text`
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
-  margin:5%;
+  width: 50%;
 `;
 
 const itemsPerRow = 2;
@@ -40,7 +41,6 @@ export const CommunityPage =() => {
             <FlatList data={albums}
                 renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
-                      style={{margin:20}}
                       numColumns={2}
             />
         </ParentContainer>

@@ -23,9 +23,10 @@ export const MyPage =({navigation}) => {
                 <Image source={require('../../assets/images/dla.png')} style={{width:90, height:90, borderRadius: 12}}/>
                 <UserThirdView>
                     <Text style={{color : '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
-                       <View style={{width:100}}>
-                           <ProfileButton  onPress={()=> navigation.navigate('Setting')} title={"프로필편집"} color='#012345' style={{borderColor:'white', borderWidth:5}}/>
-                       </View>
+                   <View style={{width:85, borderWidth:1.5, borderColor:'white',borderRadius:5}}>
+                       <Button
+                           onPress={()=> navigation.navigate('Setting')} title={"프로필편집"} color='#000000' style={{borderColor:'white'}}/>
+                   </View>
                 </UserThirdView>
             </UserSecondView>
         </UserFirstView>
@@ -114,7 +115,7 @@ const Container = styled.View`
 `;
 const UserFirstView = styled.View`
   flex: 1;
-  padding: 20px 30px 10px 10px;
+  padding: 20px 10px 10px 10px;
   justify-content: center;
 `;
 const UserSecondView = styled.View`
@@ -141,7 +142,7 @@ const LikeSingView = styled.View`
 
 const AlbumView=styled.View`
   margin-left: 4px;
-  margin-right: 4px;
+  margin-right: 8px;
   flex:1;
   justify-content: center;
 `;
@@ -150,13 +151,4 @@ const StyledText=styled.Text`
   font-size: 20px;
   color: #ffffff;
   padding-bottom: 3px;
-`;
-
-const ProfileButton = styled.Button`
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  flex-direction: column;
-  border-color:white;
-  border-width: 2px;
 `;

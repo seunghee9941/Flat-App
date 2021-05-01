@@ -12,10 +12,10 @@ const StackNavigation = () => {
                 cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                 // gestureDirection: "horizontal-inverted",
                 headerStyle:{
-                    backgroundColor: '#101010'
+                    backgroundColor: '#101010',
                 },
             }}>
-                <MyPageStack.Screen name="MyPage" component={MyPage}/>
+                <MyPageStack.Screen name="MyPage" component={MyPage} options={{headerShown: false,}}/>
                 <MyPageStack.Screen name="Setting" component={SettingPage} options={{headerTitle: '',
                     headerBackTitleVisible: true,
                     headerBackTitle: '취소',
