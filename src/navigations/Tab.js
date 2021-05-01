@@ -8,6 +8,7 @@ import {CommunityPage} from "../pages/CommunityPage";
 import {MyPage} from "../pages/MyPage";
 import {EditPage} from "../pages/EditPage";
 import Stack from "./MyPageStack";
+import RecordPage from "../pages/RecordPage";
 const TabIcon = ({name, size, color})=> {
     return <MaterialCommunityIcons name={name} size={size} color={color} />;
 };

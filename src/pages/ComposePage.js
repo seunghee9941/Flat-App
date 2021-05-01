@@ -10,7 +10,7 @@ const Container = styled.View`
   flex:1;
   justify-content: center;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #101010;
 `;
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
@@ -23,8 +23,8 @@ export const ComposePage =() => {
     return (
         <ParentContainer>
             <TopBar/>
-            <IdInput line="ID"/>
-            <CommentInput/>
+            {/*<IdInput line="ID"/>*/}
+            {/*<CommentInput/>*/}
             <Container>
                 <StyledText>ComposePage</StyledText>
             </Container>
