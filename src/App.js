@@ -6,22 +6,16 @@ import {CommunityDetailPage} from './pages/CommunityDetailPage';
 import { RoundButton } from './components/RoundButton'
 import {EditPage} from "./pages/EditPage";
 import {LoginPage} from "./pages/LoginPage";
-
-const Container = styled.View`
-  flex: 1;
-  background-color: #101010;
-  justify-content: center;
-  align-items: center;
-`;
+import {StackNavigation} from "./navigations/SignUpPageStack";
 
 const App = () => {
     return (
-        <Container>
-            <LoginPage/>
-        </Container>
-        // <NavigationContainer>
-        //     <TabNavigation />
-        // </NavigationContainer>
+        // <Container>
+        //     <LoginPage/>
+        // </Container>
+        <NavigationContainer>
+            <StackNavigation/>
+        </NavigationContainer>
     );
 };
 

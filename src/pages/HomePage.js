@@ -9,10 +9,11 @@ import {Album} from "../components/Album";
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
-  margin:5%;
+  width: 50%;
+  height: auto;
 `;
 const AlbumContainer = styled.View`
-  justify-content: center;
+  margin:10% 2% 0 2%;
   align-items: center;
 `;
 const FirstRoute = () => {
@@ -30,7 +31,7 @@ const FirstRoute = () => {
             <FlatList data={albums}
                       renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
-                      style={{margin:20}}
+                      style={{margin:0}}
                       numColumns={2}
             />
         </ParentContainer>
@@ -149,6 +150,15 @@ const albums = [
     },
     {
         id: "2",
+        title: '슬픔이',
+        state: 'LIKE_LARGE',
+        description: '흐애애앵',
+        time: '1:20',
+        artist:'보경',
+        liked: true
+    },
+    {
+        id: "3",
         title: '슬픔이',
         state: 'LIKE_LARGE',
         description: '흐애애앵',

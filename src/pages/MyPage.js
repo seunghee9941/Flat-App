@@ -14,6 +14,7 @@ import {Profile} from "../components/Profile";
 //받아와야할 것, UserName, Image, introduce, 공개 허용한 곡의 정보, 좋아요 등록한 곡의 정보
 export const MyPage = ({navigation}) => {
     return (
+
         <Container>
             <UserFirstView>
                 <StyledText>User Name</StyledText>
@@ -108,7 +109,7 @@ const Container = styled.SafeAreaView`
 `;
 const UserFirstView = styled.View`
   flex: 1;
-  padding: 20px 30px 10px 10px;
+  padding: 20px 10px 10px 10px;
   justify-content: center;
 `;
 const UserSecondView = styled.View`
@@ -134,8 +135,10 @@ const LikeSingView = styled.View`
   justify-content: center;
 `;
 
+
 const AlbumView = styled.View`
   padding-right: 8px;
+
   justify-content: center;
   align-items: center;
   flex: 1;

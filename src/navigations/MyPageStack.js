@@ -19,6 +19,7 @@ const StackNavigation = () => {
                     borderBottomWidth: 1
                 }
             }}>
+
                 <MyPageStack.Screen
                     name="MyPage"
                     component={MyPage}

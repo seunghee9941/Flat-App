@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import {Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import styled, { css } from "styled-components/native";
 import * as url from "url";
@@ -28,8 +28,8 @@ type AlbumProps = {
 
 const ALBUM_SIZE = {
   'LIKE_SMALL': 140,
-  'LIKE_LARGE': 150,
-  'PLAY_SMALL': 40,
+  'LIKE_LARGE': (Dimensions.get('window').width/2-40),
+  'PLAY_SMALL': (Dimensions.get('window').width/8),
   'PLAY_LARGE': 330,
 }
 
@@ -37,6 +37,7 @@ const AlbumHorizontalContainer = styled.View<StyleProps>`
   width: auto;
   height: ${props => props.size}px;
   flex-direction: row;
+  margin: 3% 0 3% 0;
 `;
 
 const AlbumContainer = styled.View<StyleProps>`
@@ -77,7 +78,7 @@ const LikedContainer = styled.View`
 
 const AlbumText = styled.View<StyleProps2>`
   padding-top: ${props => props.isHorizontal ? 0 : 3}px;
-  padding-left: 5px;
+  padding-left: 10px;
   font-family: NanumSquare;
 `;
 
@@ -94,7 +95,7 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
                 {played ?
-                  <MaterialCommunityIcons name="pause" size={32} color="white" />
+                  <MaterialCommunityIcons name="pause" size={16} color="white" />
                   :
                   <MaterialCommunityIcons name="play" size={16} color="white" />
                 }
@@ -102,8 +103,8 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             </PlayButton>
           </AlbumCover>
           <AlbumText isHorizontal={true}>
-            <Text style={{ fontWeight: "bold", fontSize: 16 ,color:"white" }}>{title}</Text>
-            <Text style={{ fontSize: 12 ,color:"white"}}>{artist} {time}</Text>
+            <Text style={{  fontSize: 16 ,color:"white" }}>{title}</Text>
+            <Text style={{ fontSize: 12 ,color:"#C4C4C4"}}>{artist} {time}</Text>
           </AlbumText>
         </AlbumHorizontalContainer>
         :
@@ -130,12 +131,12 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
           <AlbumText isHorizontal={false}>
             {state === 'LIKE_SMALL' && <Text style={{ fontSize: 12 , color: 'white'}}>{title}</Text> }
             {state === 'LIKE_LARGE' &&
-            <><Text style={{ fontWeight: "bold", fontSize: 16 , color: 'white'}}>{title}</Text>
-              <Text style={{ fontSize: 12 , color: 'white'}}>{artist} {time}</Text></>
+            <><Text style={{ fontSize: 16 , color: 'white'}}>{title}</Text>
+              <Text style={{ fontSize: 12 , color: '#C4C4C4'}}>{artist} {time}</Text></>
             }
             {state === 'PLAY_LARGE' &&
             <><Text style={{ fontWeight: "bold", fontSize: 18 , color: 'white'}}>{title}</Text>
-              <Text style={{ fontSize: 12 , color: 'white'}}>{artist} {time}</Text>
+              <Text style={{ fontSize: 12 , color: '#C4C4C4'}}>{artist} {time}</Text>
               <Text style={{ fontSize: 12 , color: 'white'}}>{description}</Text></>
             }
           </AlbumText>

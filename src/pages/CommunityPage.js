@@ -7,6 +7,7 @@ import { Album } from "../components/Album";
 const Container = styled.View`
   justify-content: center;
   align-items: center;
+  margin: 20% 2% 0 2%;
 `;
 
 const ParentContainer = styled.SafeAreaView`
@@ -17,7 +18,7 @@ const ParentContainer = styled.SafeAreaView`
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
-  margin:5%;
+  width: 50%;
 `;
 
 export const CommunityPage =({ navigation }) => {
@@ -37,7 +38,6 @@ export const CommunityPage =({ navigation }) => {
             <FlatList data={albums}
                 renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
-                      style={{margin:20}}
                       numColumns={2}
             />
         </ParentContainer>

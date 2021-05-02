@@ -8,9 +8,10 @@ import {CommunityPage} from "../pages/CommunityPage";
 import {CommunityDetailPage} from "../pages/CommunityDetailPage";
 import {MyPage} from "../pages/MyPage";
 import {EditPage} from "../pages/EditPage";
+import MyPageStack from "./MyPageStack";
+import {SignUpPage} from "../pages/SignUpPage";
 import {StackNavigation} from "./CommunityStack";
 import RecordPage from "../pages/RecordPage";
-import MyPageStack from "./MyPageStack";
 import ComposePageStack from "./ComposePageStack";
 
 
@@ -39,7 +40,11 @@ const TabNavigation = () => {
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'home':'home-outline',}),
                 tabBarLabel: '홈'
             }}/>
-            <Tab.Screen name="BgmPage" component={BgmPage} options={{
+            {/*<Tab.Screen name="BgmPage" component={BgmPage} options={{*/}
+            {/*    tabBarIcon: props=> TabIcon2({...props, name: props.focused? 'musical-notes':'musical-notes-outline',}),*/}
+            {/*    tabBarLabel: '무료 BGM'*/}
+            {/*}}/>*/}
+            <Tab.Screen name="BgmPage" component={SignUpPage} options={{
                 tabBarIcon: props=> TabIcon2({...props, name: props.focused? 'musical-notes':'musical-notes-outline',}),
                 tabBarLabel: '무료 BGM'
             }}/>

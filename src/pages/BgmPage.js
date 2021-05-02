@@ -13,23 +13,24 @@ const Container2 = styled.View`
   align-items: center;
   background-color: #101010;
   flex-direction: row;
-  padding-left: 10%;
-  padding-top: 3%;
+  padding-left: 3%;
+  margin: 2% 4% 2% 4%;
 `;
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
   background-color: #101010;
 `;
+const ListView = styled.View`
+  margin: 2% 4% 2% 4%;  
+`;
 const StyledText=styled.Text`
-  font-size: 20px;
+  font-size: 30px;
   color: #ffffff;
 `;
 const StyledView=styled.View`
   flex-direction: row;
   margin:1%;
-  padding-bottom: 2%;
-  border-bottom-width: 1px;
-  border-color: #C4C4C4;
+  padding-bottom: 2%;  
 `;
 
 export const BgmPage =() => {
@@ -48,14 +49,15 @@ export const BgmPage =() => {
             <Container2>
                 <StyledText>무료 BGM</StyledText>
             </Container2>
-            <FlatList data={albums}
-                      renderItem={renderAlbum}
-                      keyExtractor={(item)=> item.id} //수정
-                      style={{margin:20}}
-            />
+            <ListView>
+                <FlatList data={albums}
+                          renderItem={renderAlbum}
+                          keyExtractor={(item)=> item.id}/>
+            </ListView>
         </ParentContainer>
     );
 };
+
 const albums = [
     {
         id:"1",
