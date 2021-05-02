@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Button, Image} from 'react-native';
 import { Audio } from 'expo-av';
 import styled  from 'styled-components/native';
 import {RecordingOptions} from "expo-av/build/Audio/Recording";

@@ -44,7 +44,6 @@ export const BgmPage =() => {
     )
     return (
         <ParentContainer>
-            <TopBar/>
             <Container2>
                 <StyledText>무료 BGM</StyledText>
             </Container2>

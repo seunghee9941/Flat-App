@@ -1,12 +1,12 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import {View, Dimensions, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
-import TopBar2 from "../components/TobBar2";
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import { EffectButtons } from '../components/EffectButtons';
+import {EffectButtons} from '../components/EffectButtons';
+import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 
 const FirstRoute = () => (
-    <View style={[styles.scene]} />
+    <View style={[styles.scene]}/>
 );
 
 const SecondRoute = () => (
@@ -38,7 +38,7 @@ const ParentContainer = styled.View`
   flex: 1;
 `;
 
-export const EditPage =() => {
+export const EditPage = ({navigation}) => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: '악보편집'},
@@ -51,6 +51,32 @@ export const EditPage =() => {
         second: SecondRoute,
         third: ThirdRoute,
     });
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerTintColor: '#ffffff',
+
+            headerLeft: ({onPress, tintColor}) => {
+                return (
+                    <MaterialCommunityIcons
+                        name="keyboard-backspace"
+                        size={30}
+                        style={{marginLeft: 11}}
+                        color={tintColor}
+                        onPress={onPress}
+                    />
+                );
+            },
+            headerRight: ({tintColor}) => (
+                <Ionicons name="download-outline"
+                          size={32}
+                          style={{marginRight: 11}}
+                          color={tintColor}
+                          onPress={() => navigation.navigate("EditSavePage")}
+                />
+            ),
+        });
+    }, []);
 
     return (
         <ParentContainer>
