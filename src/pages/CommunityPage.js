@@ -25,7 +25,7 @@ export const CommunityPage =({ navigation }) => {
         <StyledView>
             <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
                 <Container>
-                    <Album title={item.title} state={item.state} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
+                    <Album state="LIKE_LARGE" title={item.title} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
                 </Container>
             </TouchableOpacity>
         </StyledView>
@@ -48,7 +48,6 @@ const albums = [
     {
         id: "1",
         title: '조이',
-        state: 'LIKE_LARGE',
         description: '깔깔깔',
         time: '1:20',
         artist:'보경',
@@ -57,7 +56,6 @@ const albums = [
     {
         id: "2",
         title: '슬픔이',
-        state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
@@ -66,7 +64,6 @@ const albums = [
     {
         id: "3",
         title: '소심이',
-        state: 'LIKE_LARGE',
         description: '슬퍼!',
         time: '1:20',
         artist:'보경',
@@ -75,7 +72,6 @@ const albums = [
     {
         id: "4",
         title: 'Hello',
-        state: 'LIKE_LARGE',
         description: '뭘봐?',
         time: '1:20',
         artist:'보경',
@@ -84,7 +80,6 @@ const albums = [
     {
         id: "5",
         title: '슬픔이',
-        state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
@@ -93,7 +88,6 @@ const albums = [
     {
         id: "6",
         title: '슬픔이',
-        state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
@@ -101,7 +95,6 @@ const albums = [
     },{
         id: "7",
         title: '슬픔이',
-        state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
@@ -109,7 +102,6 @@ const albums = [
     },{
         id: "8",
         title: '슬픔이',
-        state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',

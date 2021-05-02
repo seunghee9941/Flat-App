@@ -16,12 +16,12 @@ const Container = styled.View`
 
 const App = () => {
     return (
-        <Container>
-            <LoginPage/>
-        </Container>
-        // <NavigationContainer>
-        //     <TabNavigation />
-        // </NavigationContainer>
+        // <Container>
+        //     <LoginPage/>
+        // </Container>
+        <NavigationContainer>
+            <TabNavigation />
+        </NavigationContainer>
     );
 };
 

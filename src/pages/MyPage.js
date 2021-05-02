@@ -41,7 +41,7 @@ export const MyPage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album state="LIKE_SMALL" title={item.title} coverURL={item.coverURL} description={item.description}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -59,7 +59,7 @@ export const MyPage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album state="LIKE_SMALL" title={item.title} coverURL={item.coverURL} description={item.description}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -74,7 +74,7 @@ const albums = [
     {
         id: "1",
         title: '조이',
-        state: 'LIKE_SMALL',
+        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
         description: '깔깔깔',
         time: '1:20',
         artist: '보경',
@@ -83,7 +83,7 @@ const albums = [
     {
         id: "2",
         title: '슬픔이',
-        state: 'LIKE_SMALL',
+        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
         description: '흐애애앵',
         time: '1:20',
         artist: '보경',
@@ -92,7 +92,7 @@ const albums = [
     {
         id: "3",
         title: '소심이',
-        state: 'LIKE_SMALL',
+        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
         description: '슬퍼!',
         time: '1:20',
         artist: '보경',
