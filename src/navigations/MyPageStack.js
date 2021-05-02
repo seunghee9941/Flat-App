@@ -3,6 +3,7 @@ import {Button, Text} from "react-native";
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
 import {SettingPage} from "../pages/SettingPage";
 import {MyPage} from "../pages/MyPage";
+import TobBar from "../components/TobBar";
 
 const MyPageStack =createStackNavigator();
 
@@ -13,10 +14,20 @@ const StackNavigation = () => {
                 // gestureDirection: "horizontal-inverted",
                 headerStyle:{
                     backgroundColor: '#101010',
-                    elevation: 0
-                },
+                    elevation: 0,
+                    borderBottomColor:'white',
+                    borderBottomWidth: 1
+                }
             }}>
-                <MyPageStack.Screen name="MyPage" component={MyPage} options={{headerShown: false,}}/>
+
+                <MyPageStack.Screen
+                    name="MyPage"
+                    component={MyPage}
+                    options={{
+                        headerTitle : <TobBar/>,
+                        headerTitleAlign: "center",
+                    }}
+                />
                 <MyPageStack.Screen name="Setting" component={SettingPage} options={{headerTitle: '',
                     headerBackTitleVisible: true,
                     headerBackTitle: '취소',
@@ -28,4 +39,5 @@ const StackNavigation = () => {
             </MyPageStack.Navigator>
     );
 };
+
 export default StackNavigation;

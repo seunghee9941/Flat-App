@@ -10,6 +10,7 @@ const SmallButton = styled.View`
     justify-content: center;
     border-radius: 5px;
     border-width: 1px;
+    margin:10px;
 `;
 
 const GradientButton = styled(LinearGradient)`
@@ -24,7 +25,7 @@ const GradientButton = styled(LinearGradient)`
 const LargeButton = styled(GradientButton)`
     width: 218px;
     height: 58px;
-  border-radius: 5px;
+    border-radius: 5px;
 `;
 
 const ButtonText = styled.Text`
@@ -32,7 +33,7 @@ const ButtonText = styled.Text`
   color: #ffffff;
 `;
 
-export const RoundButton = ({ state, name }) => {
+export const RoundButton = ({ state, name, pageName, nav }) => {
     return (
         <>
             {state === 'GRAY_SMALL' &&
@@ -59,7 +60,7 @@ export const RoundButton = ({ state, name }) => {
             }
             {state === 'GRAD_LARGE' &&
             <GradientButton start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={ ['#54DE51','#51CDDE'] }>
-                <Pressable>
+                <Pressable onPress={() => nav.navigate(pageName)}>
                     {({ pressed }) => (
                         <LargeButton
                             start={{x: 0, y: 0}} end={{x: 1, y: 1}}
