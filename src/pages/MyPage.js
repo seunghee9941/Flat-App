@@ -1,15 +1,15 @@
 import React from "react";
 import styled from 'styled-components/native';
-import {Button} from "react-native";
 import {
     FlatList,
     Image,
     Text,
     TouchableOpacity,
     View,
+    Button
 } from "react-native";
-import TopBar from "../components/TobBar";
 import {Album} from "../components/Album";
+import {Profile} from "../components/Profile";
 
 //받아와야할 것, UserName, Image, introduce, 공개 허용한 곡의 정보, 좋아요 등록한 곡의 정보
 export const MyPage = ({navigation}) => {
@@ -18,13 +18,13 @@ export const MyPage = ({navigation}) => {
             <UserFirstView>
                 <StyledText>User Name</StyledText>
                 <UserSecondView>
-                    <Image source={require('../../assets/images/dla.png')}
-                           style={{width: 90, height: 90, borderRadius: 12}}/>
+                    <Profile size={'MEDIUM'} imgURL={''}/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
-                        <View style={{width:85, borderWidth:1.5, borderColor:'white',borderRadius:5}}>
+                        <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 5}}>
                             <Button
-                                onPress={()=> navigation.navigate('Setting')} title={"프로필편집"} color='#000000' style={{borderColor:'white'}}/>
+                                onPress={() => navigation.navigate('Setting')} title={"프로필편집"} color='#000000'
+                                style={{borderColor: 'white'}}/>
                         </View>
                     </UserThirdView>
                 </UserSecondView>
@@ -65,9 +65,7 @@ export const MyPage = ({navigation}) => {
                         );
                     }}
                 />
-
             </LikeSingView>
-
         </Container>
     );
 };
@@ -102,6 +100,7 @@ const albums = [
     },
 ];
 
+
 const Container = styled.SafeAreaView`
   flex: 1;
   justify-content: center;
@@ -120,38 +119,29 @@ const UserSecondView = styled.View`
 const UserThirdView = styled.View`
   padding: 10px;
   justify-content: center;
+  flex: 1;
 `;
 
 const OpenSingView = styled.View`
   flex: 2;
-  padding: 10px;
+  padding: 0px 10px 0px 10px;
   justify-content: center;
 `;
 
 const LikeSingView = styled.View`
   flex: 2;
-  padding: 10px;
+  padding: 0px 10px 0px 10px;
   justify-content: center;
 `;
 
 const AlbumView = styled.View`
-  margin-left: 4px;
-  margin-right: 4px;
-  flex: 1;
+  padding-right: 8px;
   justify-content: center;
+  align-items: center;
+  flex: 1;
 `;
 
 const StyledText = styled.Text`
   font-size: 20px;
   color: #ffffff;
-  padding-bottom: 3px;
-`;
-
-const ProfileButton = styled.Button`
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  flex-direction: column;
-  border-color: white;
-  border-width: 2px;
 `;
