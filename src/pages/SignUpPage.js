@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import styled from 'styled-components/native';
 import TopBar from "../components/TobBar";
 import IdInput from "../components/Input/IdInput";
@@ -30,16 +30,23 @@ const StyledText=styled.Text`
   color: #ffffff;
 `;
 export const SignUpPage =() => {
+
+
+    const refId = useRef(null);
+    const refPw = useRef(null);
+    const refIdCheck = useRef(null);
+    const refNick = useRef(null);
+
     return (
         <ParentContainer>
             <LogoView>
                 <Image source={require('../../assets/images/logo.png')}/>
             </LogoView>
             <RegisterView>
-                <IdInput name={'email-outline'} line='이메일'/>
-                <IdInput name={'lock'} line='비밀번호'/>
-                <IdInput name={'check-circle-outline'} line='비밀번호 확인'/>
-                <IdInput name={'emoticon-happy-outline'} line='닉네임'/>
+                <IdInput name={'email-outline'} line='이메일' keyType="next" refName={refId} nextRef={refPw}/>
+                <IdInput name={'lock'} line='비밀번호' keyType="next" refName={refPw} nextRef={refIdCheck} hide={true}/>
+                <IdInput name={'check-circle-outline'} line='비밀번호 확인' keyType="next" refName={refIdCheck} nextRef={refNick} hide={true}/>
+                <IdInput name={'emoticon-happy-outline'} line='닉네임' refName={refNick} nextRef={null}/>
             </RegisterView>
             <RoundButton state="COLOR_SMALL" name="가입하기"/>
         </ParentContainer>

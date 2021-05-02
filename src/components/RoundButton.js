@@ -37,7 +37,7 @@ export const RoundButton = ({ state, name, pageName, nav }) => {
     return (
         <>
             {state === 'GRAY_SMALL' &&
-            <Pressable>
+            <Pressable  onPress={() => nav.navigate(pageName)}>
                 {({ pressed }) => (
                     <SmallButton
                         style={[{ backgroundColor: pressed ? '#2E2E2E' : '#101010'}, { borderColor:'#ffffff' }]}>
