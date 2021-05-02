@@ -11,15 +11,17 @@ const ParentContainer=styled.View`
 `;
 const Container = styled.View`
   width: 60%;
+  height:30px;
   margin:5px;
   background-color: #101010;
   flex-direction: row;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   padding-left: 10px;
+  padding-right: 10px;
   border-color: ${props => props.isFocus ? "#51cdde":"#8E8E8E"};
 `;
 const IdInputText=styled.TextInput`
-  width: 60%;
+  width: 100%;
   color: #FFFFFF;
 `;
 const IdInput = (props) => {
@@ -29,7 +31,7 @@ const IdInput = (props) => {
 
     return (
         <ParentContainer>
-            <MaterialCommunityIcons name="account-outline" size={30} color="white" style={{ padding: '2.5%' }} />
+            <MaterialCommunityIcons name={props.name} size={30} color="white" style={{ padding: '2.5%' }} />
             <Container isFocus={IdFocus}>
                 <IdInputText
                     value={id}
@@ -38,6 +40,10 @@ const IdInput = (props) => {
                     placeholderTextColor="#8E8E8E"
                     onFocus={() => setIdFocus(true)}
                     onBlur={() => setIdFocus(false)}
+                    ref={props.refName}
+                    returnKeyType={props.keyType}
+                    onSubmitEditing={() => props.nextRef!==null ? props.nextRef.current.focus():null}
+                    secureTextEntry={props.hide}
                 />
             </Container>
         </ParentContainer>

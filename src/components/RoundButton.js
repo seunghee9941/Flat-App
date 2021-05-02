@@ -4,12 +4,13 @@ import { Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const SmallButton = styled.View`
-    width: 160px;
+    padding: 0 10% 0 10%;
     height: 35px;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
     border-width: 1px;
+    margin:10px;
 `;
 
 const GradientButton = styled(LinearGradient)`
@@ -24,7 +25,7 @@ const GradientButton = styled(LinearGradient)`
 const LargeButton = styled(GradientButton)`
     width: 218px;
     height: 58px;
-  border-radius: 5px;
+    border-radius: 5px;
 `;
 
 const ButtonText = styled.Text`
