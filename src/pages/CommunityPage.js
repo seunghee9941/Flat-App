@@ -1,40 +1,37 @@
 import React from "react";
 import styled from 'styled-components/native';
 import TopBar from "../components/TobBar";
-import {Dimensions, FlatList, ScrollView, TouchableOpacity, View} from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 import { Album } from "../components/Album";
-import GridView from 'react-native-gridview';
 
 const Container = styled.View`
   justify-content: center;
   align-items: center;
   margin: 20% 2% 0 2%;
 `;
+
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
   background-color: #101010;
 `;
-const StyledText=styled.Text`
-  font-size: 30px;
-  color: #ffffff;
-`;
+
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
   width: 50%;
 `;
 
-const itemsPerRow = 2;
-export const CommunityPage =() => {
+export const CommunityPage =({ navigation }) => {
     const renderAlbum=({item})=>(
         <StyledView>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
                 <Container>
                     <Album title={item.title} state={item.state} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
                 </Container>
             </TouchableOpacity>
         </StyledView>
-    )
+    );
+
     return (
         <ParentContainer>
             <TopBar/>
@@ -46,6 +43,7 @@ export const CommunityPage =() => {
         </ParentContainer>
     );
 };
+
 const albums = [
     {
         id: "1",

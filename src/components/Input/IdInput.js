@@ -17,9 +17,10 @@ const Container = styled.View`
   border-bottom-width: 2px;
   padding-left: 10px;
   border-color: ${props => props.isFocus ? "#51cdde":"#8E8E8E"};
+  padding-right: 10px;
 `;
 const IdInputText=styled.TextInput`
-  width: 60%;
+  width: 100%;
   color: #FFFFFF;
 `;
 const IdInput = (props) => {
@@ -29,7 +30,7 @@ const IdInput = (props) => {
 
     return (
         <ParentContainer>
-            <MaterialCommunityIcons name="account-outline" size={30} color="white" style={{ padding: '2.5%' }} />
+            <MaterialCommunityIcons name={props.name} size={30} color="white" style={{ padding: '2.5%' }} />
             <Container isFocus={IdFocus}>
                 <IdInputText
                     value={id}

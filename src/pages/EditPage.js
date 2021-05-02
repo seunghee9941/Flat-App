@@ -1,23 +1,26 @@
-
-// 작곡 페이지
-
 import React from "react";
 import {View, Dimensions, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import TopBar2 from "../components/TobBar2";
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import TopBar from "../components/TobBar";
-//버튼 들어갈 곳
+import { EffectButtons } from '../components/EffectButtons';
+
 const FirstRoute = () => (
-    <View style={[styles.scene, {backgroundColor: '#101010'}]} />
+    <View style={[styles.scene]} />
 );
 
 const SecondRoute = () => (
-    <View style={[styles.scene, {backgroundColor: '#101010'}]} />
+    <View style={[styles.scene]}>
+        <EffectButtons effects={["Piano", "Drum", "Acoustic", "Electronic", "Saxophone", "Violin"]}/>
+    </View>
 );
+
 const ThirdRoute = () => (
-    <View style={[styles.scene, {backgroundColor: '#101010'}]} />
+    <View style={[styles.scene]}>
+        <EffectButtons effects={["BALLAD", "R&B", "Rock", "HIP HOP", "JAZZ", "DANCE"]}/>
+    </View>
 );
+
 const initialLayout = {width: Dimensions.get('window').width};
 // MusicSheet들어갈 자리 임시방편
 const Container = styled.View`
@@ -30,15 +33,12 @@ const Container = styled.View`
   flex-direction: row;
   border-bottom-color: #8E8E8E;
 `;
+
 const ParentContainer = styled.View`
   flex: 1;
 `;
-const StyledText=styled.Text`
-  font-size: 30px;
-  color: #ffffff;
-`;
-export const EditPage =() => {
 
+export const EditPage =() => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: '악보편집'},
@@ -52,12 +52,10 @@ export const EditPage =() => {
         third: ThirdRoute,
     });
 
-
     return (
         <ParentContainer>
             <TopBar2/>
             <Container/>
-
             <TabView
                 navigationState={{index, routes}}
                 renderScene={renderScene}
@@ -76,9 +74,11 @@ export const EditPage =() => {
         </ParentContainer>
     );
 };
+
 const styles = StyleSheet.create({
     scene: {
         flex: 1,
+        backgroundColor: '#C4C4C4',
     },
     like: {
         padding: 8,

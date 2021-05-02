@@ -1,10 +1,11 @@
 import React from "react";
 import styled from 'styled-components/native';
 import TopBar from "../components/TobBar";
-import IdInput from "../components/Input/IdInput";
-import MessageInput from "../components/Input/MessageInput";
-import CommentInput from "../components/Input/CommentInput";
-import {KeyboardAvoidingView} from "react-native";
+import {RoundButton} from "../components/RoundButton";
+
+const ParentContainer = styled.View`
+  flex: 1;
+`;
 
 const Container = styled.View`
   flex:1;
@@ -12,21 +13,15 @@ const Container = styled.View`
   align-items: center;
   background-color: #101010;
 `;
-const ParentContainer = styled.SafeAreaView`
-  flex: 1;
-`;
-const StyledText=styled.Text`
-  font-size: 30px;
-  color: #ffffff;
-`;
+
 export const ComposePage =() => {
     return (
         <ParentContainer>
             <TopBar/>
-            {/*<IdInput line="ID"/>*/}
-            {/*<CommentInput/>*/}
             <Container>
-                <StyledText>ComposePage</StyledText>
+                <RoundButton state="GRAD_LARGE" name="녹음하기"/>
+                <RoundButton state="GRAD_LARGE" name="편집하기"/>
+                <RoundButton state="GRAD_LARGE" name="무료 BGM"/>
             </Container>
         </ParentContainer>
     );
