@@ -1,7 +1,5 @@
 import React from "react";
 import styled from 'styled-components/native';
-import {Dimensions} from "react-native";
-import {Album} from "./Album";
 import {Profile} from "./Profile";
 
 const ProfileContainer = styled.View`

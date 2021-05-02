@@ -54,7 +54,7 @@ export const EditPage =() => {
 
     return (
         <ParentContainer>
-            <TopBar2/>
+            {/*<TopBar2/>*/}
             <Container/>
             <TabView
                 navigationState={{index, routes}}
