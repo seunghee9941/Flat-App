@@ -1,12 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native';
-import TopBar from "../components/TobBar";
 import {RoundButton} from "../components/RoundButton";
-import IdInput from "../components/Input/IdInput";
-import MessageInput from "../components/Input/MessageInput";
-import CommentInput from "../components/Input/CommentInput";
-import {KeyboardAvoidingView, Pressable} from "react-native";
-import {Button} from "react-native";
 
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
