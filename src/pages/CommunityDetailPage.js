@@ -116,7 +116,7 @@ export const CommunityDetailPage = () => {
                 ListHeaderComponent={HeaderComponent}
             />
             <InputContainer>
-                <CommentInput returnKeyType="done"/>
+                <CommentInput/>
                 <Pressable onPress={()=> null}>
                     <Ionicons name="send-outline" size={24} color="#51CDDE" />
                 </Pressable>

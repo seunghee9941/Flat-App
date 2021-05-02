@@ -1,24 +1,18 @@
 import React from "react";
 import styled from 'styled-components/native';
-import {
-    FlatList,
-    Image,
-    Text,
-    TouchableOpacity,
-    View,
-    Button
-} from "react-native";
-import {Album} from "../components/Album";
-import {Profile} from "../components/Profile";
+import { FlatList, Text, TouchableOpacity, View, Button} from "react-native";
+import { Album } from "../components/Album";
+import { Profile } from "../components/Profile";
 
 //받아와야할 것, UserName, Image, introduce, 공개 허용한 곡의 정보, 좋아요 등록한 곡의 정보
 export const MyPage = ({navigation}) => {
     return (
+
         <Container>
             <UserFirstView>
                 <StyledText>User Name</StyledText>
                 <UserSecondView>
-                    <Profile size={'MEDIUM'} imgURL={''}/>
+                    <Profile size={'MEDIUM'} imgURL={'https://reactnative.dev/img/tiny_logo.png'}/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                         <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 5}}>
@@ -108,7 +102,7 @@ const Container = styled.SafeAreaView`
 `;
 const UserFirstView = styled.View`
   flex: 1;
-  padding: 20px 30px 10px 10px;
+  padding: 20px 10px 10px 10px;
   justify-content: center;
 `;
 const UserSecondView = styled.View`
@@ -134,8 +128,10 @@ const LikeSingView = styled.View`
   justify-content: center;
 `;
 
+
 const AlbumView = styled.View`
   padding-right: 8px;
+
   justify-content: center;
   align-items: center;
   flex: 1;

@@ -31,6 +31,7 @@ const CommentInput = () => {
                 placeholder=""
                 onFocus={() => setCommentFocus(true)}
                 onBlur={() => setCommentFocus(false)}
+                returnKeyType="done"
             />
         </Container>
     );

@@ -19,6 +19,7 @@ const Container = styled.View`
   padding-left: 10px;
   padding-right: 10px;
   border-color: ${props => props.isFocus ? "#51cdde":"#8E8E8E"};
+  padding-right: 10px;
 `;
 const IdInputText=styled.TextInput`
   width: 100%;
