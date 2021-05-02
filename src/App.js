@@ -8,11 +8,10 @@ import {EditPage} from "./pages/EditPage";
 import {LoginPage} from "./pages/LoginPage";
 import {StackNavigation} from "./navigations/SignUpPageStack";
 
+
+
 const App = () => {
     return (
-        // <Container>
-        //     <LoginPage/>
-        // </Container>
         <NavigationContainer>
             <StackNavigation/>
         </NavigationContainer>
