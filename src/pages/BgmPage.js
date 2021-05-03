@@ -1,9 +1,7 @@
 import React from "react";
 import styled from 'styled-components/native';
-import TopBar from "../components/TobBar";
-import {Dimensions, FlatList, ScrollView, TouchableOpacity, View} from "react-native";
+import { FlatList,TouchableOpacity} from "react-native";
 import { Album } from "../components/Album";
-import GridView from 'react-native-gridview';
 
 const Container = styled.View`
   padding-left: 5%;
