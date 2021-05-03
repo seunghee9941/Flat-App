@@ -4,6 +4,47 @@ import { FlatList, Text, TouchableOpacity, View, Button} from "react-native";
 import { Album } from "../components/Album";
 import { Profile } from "../components/Profile";
 
+const Container = styled.SafeAreaView`
+  flex: 1;
+  justify-content: center;
+  background-color: #101010;
+`;
+const UserFirstView = styled.View`
+  flex: 1;
+  padding: 20px 10px 10px 10px;
+  justify-content: center;
+`;
+const UserSecondView = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+const UserThirdView = styled.View`
+  padding: 10px;
+  justify-content: center;
+  flex: 1;
+`;
+const OpenSingView = styled.View`
+  flex: 2;
+  padding: 0px 10px 0px 10px;
+  justify-content: center;
+`;
+const LikeSingView = styled.View`
+  flex: 2;
+  padding: 0px 10px 0px 10px;
+  justify-content: center;
+`;
+const AlbumView = styled.View`
+  padding-right: 8px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
+const StyledText = styled.Text`
+  font-size: 20px;
+  color: #ffffff;
+`;
+
 //받아와야할 것, UserName, Image, introduce, 공개 허용한 곡의 정보, 좋아요 등록한 곡의 정보
 export const MyPage = ({navigation}) => {
     return (
@@ -93,51 +134,3 @@ const albums = [
         liked: true
     },
 ];
-
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  justify-content: center;
-  background-color: #101010;
-`;
-const UserFirstView = styled.View`
-  flex: 1;
-  padding: 20px 10px 10px 10px;
-  justify-content: center;
-`;
-const UserSecondView = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-const UserThirdView = styled.View`
-  padding: 10px;
-  justify-content: center;
-  flex: 1;
-`;
-
-const OpenSingView = styled.View`
-  flex: 2;
-  padding: 0px 10px 0px 10px;
-  justify-content: center;
-`;
-
-const LikeSingView = styled.View`
-  flex: 2;
-  padding: 0px 10px 0px 10px;
-  justify-content: center;
-`;
-
-
-const AlbumView = styled.View`
-  padding-right: 8px;
-
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-`;
-
-const StyledText = styled.Text`
-  font-size: 20px;
-  color: #ffffff;
-`;

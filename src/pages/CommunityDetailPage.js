@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { Pressable, FlatList, KeyboardAvoidingView } from 'react-native';
+import { Pressable, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Album } from "../components/Album";
-import TopBar from "../components/TobBar";
 import { Comment } from "../components/Comment";
+import CommentInput from "../components/Input/CommentInput";
 
 const ParentContainer = styled.SafeAreaView`
     flex: 1;
@@ -57,15 +57,6 @@ const InputContainer = styled.View`
     flex-direction: row;
 `;
 
-const CommentInput = styled.TextInput`
-    width: 90%;
-    height: 34px;
-    border-radius: 6px;
-    background-color: #2E2E2E;
-    color: #ffffff;
-    padding: 10px;
-`;
-
 const CommunityIcon = ({ name, size, color }) => {
     const [isClicked, setIsClicked] = useState(false);
     return (
@@ -108,19 +99,13 @@ export const CommunityDetailPage = () => {
 
     return (
         <ParentContainer>
-            <TopBar/>
             <FlatList
                 data={comments}
                 renderItem={renderComment}
                 keyExtractor={(item)=>item.id}
                 ListHeaderComponent={HeaderComponent}
             />
-            <InputContainer>
-                <CommentInput/>
-                <Pressable onPress={()=> null}>
-                    <Ionicons name="send-outline" size={24} color="#51CDDE" />
-                </Pressable>
-            </InputContainer>
+            <CommentInput/>
         </ParentContainer>
     );
 };

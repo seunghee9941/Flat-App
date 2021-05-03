@@ -3,7 +3,7 @@ import { Dimensions, TouchableOpacity, FlatList} from 'react-native';
 import styled from 'styled-components/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {Album} from "../components/Album";
-//버튼 들어갈 곳
+
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
@@ -29,11 +29,10 @@ const FirstRoute = () => {
             <FlatList data={albums}
                       renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
-                      style={{margin:0}}
+                      style={{margin:20}}
                       numColumns={2}
             />
         </ParentContainer>
-
     );
 };
 
@@ -110,7 +109,6 @@ export const HomePage =() =>{
                             padding: 0,
                             backgroundColor: '#101010',
                             fontSize:10,
-
                             }}
                         indicatorStyle={{
                             backgroundColor: '#87F8FF',

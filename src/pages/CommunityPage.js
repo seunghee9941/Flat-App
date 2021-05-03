@@ -1,13 +1,13 @@
 import React from "react";
 import styled from 'styled-components/native';
-import TopBar from "../components/TobBar";
+import TopBar from "../components/TopBar";
 import { FlatList, TouchableOpacity } from "react-native";
 import { Album } from "../components/Album";
 
 const Container = styled.View`
   justify-content: center;
   align-items: center;
-  margin: 20% 2% 0 2%;
+  margin: ${props => props.index%2 === 1 ? "20% 0 0 5%" : "20% 5% 0 0"};
 `;
 
 const ParentContainer = styled.SafeAreaView`
@@ -25,7 +25,7 @@ export const CommunityPage =({ navigation }) => {
     const renderAlbum=({item})=>(
         <StyledView>
             <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
-                <Container>
+                <Container index={item.id}>
                     <Album state="LIKE_LARGE" title={item.title} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
                 </Container>
             </TouchableOpacity>
@@ -34,7 +34,6 @@ export const CommunityPage =({ navigation }) => {
 
     return (
         <ParentContainer>
-            <TopBar/>
             <FlatList data={albums}
                 renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정

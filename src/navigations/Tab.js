@@ -2,17 +2,10 @@ import React from 'react';
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons, Ionicons} from "@expo/vector-icons";
 import {HomePage} from "../pages/HomePage";
-import {BgmPage} from "../pages/BgmPage";
-import {ComposePage} from "../pages/ComposePage";
-import {CommunityPage} from "../pages/CommunityPage";
-import {CommunityDetailPage} from "../pages/CommunityDetailPage";
-import {MyPage} from "../pages/MyPage";
-import {EditPage} from "../pages/EditPage";
 import MyPageStack from "./MyPageStack";
-import {SignUpPage} from "../pages/SignUpPage";
-import {StackNavigation} from "./CommunityStack";
-import RecordPage from "../pages/RecordPage";
+import {CommunityStackNavigation} from "./CommunityPageStack";
 import ComposePageStack from "./ComposePageStack";
+import {BgmPage} from "../pages/BgmPage";
 
 
 const TabIcon = ({name, size, color})=> {
@@ -25,7 +18,7 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
     return (
-        <Tab.Navigator initialRouteName="HomePage"
+        <Tab.Navigator initialRouteName="ComposePage"
            tabBarOptions={{
                keyboardHidesTabBar: true,
                style:{
@@ -40,19 +33,15 @@ const TabNavigation = () => {
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'home':'home-outline',}),
                 tabBarLabel: '홈'
             }}/>
-            {/*<Tab.Screen name="BgmPage" component={BgmPage} options={{*/}
-            {/*    tabBarIcon: props=> TabIcon2({...props, name: props.focused? 'musical-notes':'musical-notes-outline',}),*/}
-            {/*    tabBarLabel: '무료 BGM'*/}
-            {/*}}/>*/}
-            <Tab.Screen name="BgmPage" component={SignUpPage} options={{
+            <Tab.Screen name="BgmPage" component={BgmPage} options={{
                 tabBarIcon: props=> TabIcon2({...props, name: props.focused? 'musical-notes':'musical-notes-outline',}),
                 tabBarLabel: '무료 BGM'
             }}/>
-            {/*실험중.. 나중에 ComposePage로 바꿔야함!*/}
-            <Tab.Screen name="작곡" component={ComposePageStack} options={{
+            <Tab.Screen name="ComposePage" component={ComposePageStack} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'plus-circle':'plus-circle-outline',}),
+                tabBarLabel: '작곡'
             }}/>
-            <Tab.Screen name="CommunityPage" component={StackNavigation} options={{
+            <Tab.Screen name="CommunityPage" component={CommunityStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'comment-processing':'comment-outline',}),
                 tabBarLabel: '커뮤니티'
             }}/>

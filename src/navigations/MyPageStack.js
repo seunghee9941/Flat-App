@@ -3,7 +3,7 @@ import {Button, Text} from "react-native";
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
 import {SettingPage} from "../pages/SettingPage";
 import {MyPage} from "../pages/MyPage";
-import TobBar from "../components/TobBar";
+import TopBar from "../components/TopBar";
 
 const MyPageStack =createStackNavigator();
 
@@ -24,7 +24,7 @@ const StackNavigation = () => {
                     name="MyPage"
                     component={MyPage}
                     options={{
-                        headerTitle : <TobBar/>,
+                        headerTitle : <TopBar/>,
                         headerTitleAlign: "center",
                     }}
                 />

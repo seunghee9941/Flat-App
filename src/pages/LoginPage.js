@@ -21,10 +21,6 @@ const LoginView = styled.View`
   justify-content: center;
 `;
 
-const ButtonView = styled.View`
-  margin-top: 30px;
-`;
-
 export const LoginPage =({ navigation }) => {
     const refId = useRef(null);
     const refPw = useRef(null);
@@ -35,12 +31,10 @@ export const LoginPage =({ navigation }) => {
                 <Image source={require('../../assets/images/logo.png')}/>
             </LogoView>
             <LoginView>
-                <IdInput name="account-outline" keyType="next" refName={refId} nextRef={refPw} line="아이디"/>
-                <IdInput name="lock" keyType="done" refName={refPw} nextRef={null} hide={true} line="비밀번호"/>
-                <ButtonView>
+                <IdInput name="account-outline" state="Login" keyType="next" refName={refId} nextRef={refPw}/>
+                <IdInput name="lock" state="Login" keyType="done" refName={refPw} nextRef={null} hide={true}/>
                     <RoundButton state="COLOR_SMALL" name="로그인" pageName="HomeTab" nav={navigation}/>
                     <RoundButton state="GRAY_SMALL" name="회원가입" pageName="SignUpPage" nav={navigation}/>
-                </ButtonView>
                 <Text style={{color:'#ffffff', marginTop:10}}>구글 계정으로 로그인</Text>
             </LoginView>
         </Container>
