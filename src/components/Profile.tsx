@@ -31,11 +31,11 @@ const ProfileImage = styled.Image`
 export const Profile = ({size, imgURL}: ProfileProps) => {
   return(
     <ProfileContainer size={ALBUM_SIZE[size]}>
-      <ProfileImage source={require('../../assets/images/dla.png')}/>
+      <ProfileImage source={{uri: imgURL}}/>
     </ProfileContainer>
   )
 };
 
 Profile.defaultProps = {
-
+  imgURL: 'https://reactnative.dev/img/tiny_logo.png',
 }

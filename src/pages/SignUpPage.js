@@ -23,7 +23,7 @@ const ParentContainer = styled.SafeAreaView`
   align-items: center;
 `;
 
-export const SignUpPage =() => {
+export const SignUpPage =({ navigation }) => {
 
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
@@ -61,6 +61,7 @@ export const SignUpPage =() => {
             return '비밀번호 불일치';
         }
     };
+
     return (
         <ParentContainer>
             <LogoView>
@@ -81,7 +82,7 @@ export const SignUpPage =() => {
                 <IdInput name={'emoticon-happy-outline'} value={nickName} line='닉네임' refName={refNick} nextRef={null}
                          setValue={setNickName} />
             </RegisterView>
-            <RoundButton state="COLOR_SMALL" name="가입하기"/>
+            <RoundButton state="COLOR_SMALL" name="가입하기" pageName="LoginPage" nav={navigation}/>
         </ParentContainer>
     );
 };

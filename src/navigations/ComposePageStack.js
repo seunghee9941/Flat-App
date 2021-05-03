@@ -3,7 +3,7 @@ import {CardStyleInterpolators, createStackNavigator} from "@react-navigation/st
 import RecordPage from "../pages/RecordPage";
 import {ComposePage} from "../pages/ComposePage";
 import {EditPage} from "../pages/EditPage";
-import TobBar from "../components/TobBar";
+import TobBar from "../components/TopBar";
 import {BgmPage} from "../pages/BgmPage";
 import EditSavePage from "../pages/EditSavePage";
 

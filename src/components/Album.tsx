@@ -83,7 +83,7 @@ const AlbumText = styled.View<StyleProps2>`
 `;
 
 export const Album = ({state, liked, coverURL, title, time, artist, description}: AlbumProps) => {
-  const coverPath = require('../../assets/images/AlbumCover.png');
+
   const [played, setPlayed] = useState(false);
 
   return (
@@ -91,13 +91,13 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
       {state === 'PLAY_SMALL' ?
         <AlbumHorizontalContainer size={ALBUM_SIZE[state]}>
           <AlbumCover size={ALBUM_SIZE[state]}>
-            <AlbumImage source={coverPath} isPlayed={played}/>
+            <AlbumImage source={{uri: coverURL}} isPlayed={played}/>
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
                 {played ?
-                  <MaterialCommunityIcons name="pause" size={16} color="white" />
+                  <MaterialCommunityIcons name="pause" size={30} color="white" />
                   :
-                  <MaterialCommunityIcons name="play" size={16} color="white" />
+                  <MaterialCommunityIcons name="play" size={30} color="white" />
                 }
               </TouchableOpacity>
             </PlayButton>
@@ -110,7 +110,7 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
         :
         <AlbumContainer size={ALBUM_SIZE[state]}>
           <AlbumCover size={ALBUM_SIZE[state]}>
-            <AlbumImage source={ coverPath } isPlayed={played}/>
+            <AlbumImage source={{uri: coverURL}} isPlayed={played}/>
             { state === 'PLAY_LARGE' &&
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
@@ -143,14 +143,14 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
         </AlbumContainer>
       }
     </>
-  )
+  );
 };
 
 Album.defaultProps = {
-  coverURL: '../../assets/images/AlbumCover.png',
+  coverURL: 'https://reactnative.dev/img/tiny_logo.png',
   liked: false,
   title: '제목',
   artist: '작곡가',
   time: '3:01',
   description: '이 곡은 어쩌구 저쩌구',
-}
+};

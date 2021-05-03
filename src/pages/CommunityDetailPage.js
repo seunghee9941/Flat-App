@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import { Pressable, FlatList, KeyboardAvoidingView } from 'react-native';
+import { Pressable, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Album } from "../components/Album";
-import TopBar from "../components/TobBar";
 import { Comment } from "../components/Comment";
+import CommentInput from "../components/Input/CommentInput";
 
 const ParentContainer = styled.SafeAreaView`
     flex: 1;
     background-color: #101010;
 `;
+
 const HeaderContainer = styled.View`
     align-items: center;
 `;
+
 const AlbumContainer = styled.View`
     width: 90%;
     position: relative;
@@ -22,6 +24,7 @@ const AlbumContainer = styled.View`
     border-bottom-color: #9F9F9F;
     align-items: center;
 `;
+
 const IconContainer = styled.View`
     width: 50px;
     position: absolute;
@@ -30,32 +33,28 @@ const IconContainer = styled.View`
     right: 10%;
     top: 335px;
 `;
+
 const CountContainer = styled.View`
     flex-direction: row;
     justify-content: flex-end;
     right: 2.5%;
 `;
+
 const CountText = styled.Text`
     font-size: 12px;
     color:#ffffff;
     padding: 5px;
 `;
+
 const CommentContainer = styled.View`
     width: 100%;
     justify-content: center;
     height: 60px;
     left: 7.5%;
 `;
+
 const InputContainer = styled.View`
     flex-direction: row;
-`;
-const CommentInput = styled.TextInput`
-    width: 90%;
-    height: 34px;
-    border-radius: 6px;
-    background-color: #2E2E2E;
-    color: #ffffff;
-    padding: 10px;
 `;
 
 const CommunityIcon = ({ name, size, color }) => {
@@ -91,6 +90,7 @@ export const CommunityDetailPage = () => {
             </>
         );
     };
+
     const renderComment = ({item}) => (
         <CommentContainer>
             <Comment user={item.id} comment={item.comment}/>
@@ -99,19 +99,13 @@ export const CommunityDetailPage = () => {
 
     return (
         <ParentContainer>
-            <TopBar/>
             <FlatList
                 data={comments}
                 renderItem={renderComment}
                 keyExtractor={(item)=>item.id}
                 ListHeaderComponent={HeaderComponent}
             />
-            <InputContainer>
-                <CommentInput returnKeyType="done"/>
-                <Pressable onPress={()=> null}>
-                    <Ionicons name="send-outline" size={24} color="#51CDDE" />
-                </Pressable>
-            </InputContainer>
+            <CommentInput/>
         </ParentContainer>
     );
 };

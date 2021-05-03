@@ -1,9 +1,7 @@
 import React from "react";
-import {View, Dimensions, StyleSheet, Text, TouchableOpacity, FlatList} from 'react-native';
+import { Dimensions, TouchableOpacity, FlatList} from 'react-native';
 import styled from 'styled-components/native';
-import TopBar2 from "../components/TobBar2";
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import TopBar from "../components/TobBar";
 import {Album} from "../components/Album";
 
 const StyledView=styled.View`
@@ -21,7 +19,7 @@ const FirstRoute = () => {
         <StyledView>
             <TouchableOpacity>
                 <AlbumContainer>
-                    <Album title={item.title} state={item.state} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
+                    <Album state="LIKE_LARGE" title={item.title} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
                 </AlbumContainer>
             </TouchableOpacity>
         </StyledView>
@@ -31,22 +29,24 @@ const FirstRoute = () => {
             <FlatList data={albums}
                       renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
-                      style={{margin:0}}
+                      style={{margin:20}}
                       numColumns={2}
             />
         </ParentContainer>
     );
 };
+
 const SecondRoute = () => {
     const renderAlbum=({item})=>(
         <StyledView>
             <TouchableOpacity>
                 <AlbumContainer>
-                    <Album title={item.title} state={item.state} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
+                    <Album state="LIKE_LARGE" title={item.title} coverURL={item.coverURL} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
                 </AlbumContainer>
             </TouchableOpacity>
         </StyledView>
-    )
+    );
+
     return(
         <ParentContainer>
             <FlatList data={albums}
@@ -60,7 +60,6 @@ const SecondRoute = () => {
 };
 
 const initialLayout = {width: Dimensions.get('window').width};
-
 const Container = styled.View`
   justify-content: center;
   align-self: stretch;
@@ -70,16 +69,18 @@ const Container = styled.View`
   border-width: 1px;
   flex-direction: row;
 `;
+
 const ParentContainer = styled.View`
   flex: 1;
   background-color: #101010;
 `;
+
 const StyledText=styled.Text`
   font-size: 20px;
   color: #ffffff;
 `;
-export const HomePage =() =>{
 
+export const HomePage =() =>{
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: 'BGM'},
@@ -91,14 +92,11 @@ export const HomePage =() =>{
         second: SecondRoute,
     });
 
-
     return (
         <ParentContainer>
-            <TopBar/>
             <Container>
                 <StyledText>이너피스의 플레이리스트</StyledText>
             </Container>
-
             <TabView
                 navigationState={{index, routes}}
                 renderScene={renderScene}
@@ -111,7 +109,6 @@ export const HomePage =() =>{
                             padding: 0,
                             backgroundColor: '#101010',
                             fontSize:10,
-
                             }}
                         indicatorStyle={{
                             backgroundColor: '#87F8FF',
@@ -122,11 +119,11 @@ export const HomePage =() =>{
         </ParentContainer>
     );
 };
+
 const albums = [
     {
         id: "1",
         title: '조이',
-        state: 'LIKE_LARGE',
         description: '깔깔깔',
         time: '1:20',
         artist:'보경',
@@ -135,7 +132,6 @@ const albums = [
     {
         id: "2",
         title: '슬픔이',
-        state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',

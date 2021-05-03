@@ -30,7 +30,7 @@ export const Comment = ({ user, comment }) => {
     return (
         <>
             <ProfileContainer>
-                <Profile size={'SMALL'} imgURL={''}/>
+                <Profile size={'SMALL'} imgURL={'https://reactnative.dev/img/tiny_logo.png'}/>
                 <CommentUser>{user}</CommentUser>
             </ProfileContainer>
             <ContentContainer>

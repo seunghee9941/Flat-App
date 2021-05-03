@@ -1,14 +1,8 @@
 import React from "react";
 import styled from 'styled-components/native';
-import {
-    FlatList,
-    Text,
-    TouchableOpacity,
-    View,
-    Button
-} from "react-native";
-import {Album} from "../components/Album";
-import {Profile} from "../components/Profile";
+import { FlatList, Text, TouchableOpacity, View, Button} from "react-native";
+import { Album } from "../components/Album";
+import { Profile } from "../components/Profile";
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -42,7 +36,6 @@ const LikeSingView = styled.View`
 `;
 const AlbumView = styled.View`
   padding-right: 8px;
-
   justify-content: center;
   align-items: center;
   flex: 1;
@@ -60,7 +53,7 @@ export const MyPage = ({navigation}) => {
             <UserFirstView>
                 <StyledText>User Name</StyledText>
                 <UserSecondView>
-                    <Profile size={'MEDIUM'} imgURL={''}/>
+                    <Profile size={'MEDIUM'} imgURL={'https://reactnative.dev/img/tiny_logo.png'}/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                         <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 5}}>
@@ -83,7 +76,7 @@ export const MyPage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album state="LIKE_SMALL" title={item.title} coverURL={item.coverURL} description={item.description}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -101,7 +94,7 @@ export const MyPage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album state="LIKE_SMALL" title={item.title} coverURL={item.coverURL} description={item.description}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -116,7 +109,7 @@ const albums = [
     {
         id: "1",
         title: '조이',
-        state: 'LIKE_SMALL',
+        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
         description: '깔깔깔',
         time: '1:20',
         artist: '보경',
@@ -125,7 +118,7 @@ const albums = [
     {
         id: "2",
         title: '슬픔이',
-        state: 'LIKE_SMALL',
+        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
         description: '흐애애앵',
         time: '1:20',
         artist: '보경',
@@ -134,7 +127,7 @@ const albums = [
     {
         id: "3",
         title: '소심이',
-        state: 'LIKE_SMALL',
+        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
         description: '슬퍼!',
         time: '1:20',
         artist: '보경',
