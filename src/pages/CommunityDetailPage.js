@@ -10,11 +10,9 @@ const ParentContainer = styled.SafeAreaView`
     flex: 1;
     background-color: #101010;
 `;
-
 const HeaderContainer = styled.View`
     align-items: center;
 `;
-
 const AlbumContainer = styled.View`
     width: 90%;
     position: relative;
@@ -24,7 +22,6 @@ const AlbumContainer = styled.View`
     border-bottom-color: #9F9F9F;
     align-items: center;
 `;
-
 const IconContainer = styled.View`
     width: 50px;
     position: absolute;
@@ -33,30 +30,25 @@ const IconContainer = styled.View`
     right: 10%;
     top: 335px;
 `;
-
 const CountContainer = styled.View`
     flex-direction: row;
     justify-content: flex-end;
     right: 2.5%;
 `;
-
 const CountText = styled.Text`
     font-size: 12px;
     color:#ffffff;
     padding: 5px;
 `;
-
 const CommentContainer = styled.View`
     width: 100%;
     justify-content: center;
     height: 60px;
     left: 7.5%;
 `;
-
 const InputContainer = styled.View`
     flex-direction: row;
 `;
-
 const CommentInput = styled.TextInput`
     width: 90%;
     height: 34px;
@@ -99,7 +91,6 @@ export const CommunityDetailPage = () => {
             </>
         );
     };
-
     const renderComment = ({item}) => (
         <CommentContainer>
             <Comment user={item.id} comment={item.comment}/>

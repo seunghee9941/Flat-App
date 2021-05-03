@@ -9,12 +9,10 @@ const Container = styled.View`
   align-items: center;
   margin: 20% 2% 0 2%;
 `;
-
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
   background-color: #101010;
 `;
-
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
@@ -38,8 +36,7 @@ export const CommunityPage =({ navigation }) => {
             <FlatList data={albums}
                 renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
-                      numColumns={2}
-            />
+                      numColumns={2}/>
         </ParentContainer>
     );
 };

@@ -5,7 +5,7 @@ import TopBar2 from "../components/TobBar2";
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import TopBar from "../components/TobBar";
 import {Album} from "../components/Album";
-//버튼 들어갈 곳
+
 const StyledView=styled.View`
   flex-direction: row;
   justify-content: center;
@@ -35,10 +35,7 @@ const FirstRoute = () => {
                       numColumns={2}
             />
         </ParentContainer>
-
     );
-
-
 };
 const SecondRoute = () => {
     const renderAlbum=({item})=>(
@@ -59,11 +56,8 @@ const SecondRoute = () => {
                       numColumns={2}
             />
         </ParentContainer>
-
     );
-
 };
-
 
 const initialLayout = {width: Dimensions.get('window').width};
 
@@ -128,16 +122,6 @@ export const HomePage =() =>{
         </ParentContainer>
     );
 };
-const styles = StyleSheet.create({
-    scene: {
-        flex: 1,
-    },
-    like: {
-        padding: 8,
-        backgroundColor: '#101010',
-        fontSize: 10,
-    },
-});
 const albums = [
     {
         id: "1",

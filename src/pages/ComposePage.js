@@ -5,14 +5,12 @@ import {RoundButton} from "../components/RoundButton";
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
 `;
-
 const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
   background-color: #101010;
 `;
-
 const StyledText = styled.Text`
   font-size: 30px;
   color: #ffffff;

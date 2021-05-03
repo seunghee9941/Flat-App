@@ -6,6 +6,40 @@ import MessageInput from "../components/Input/MessageInput";
 import TitleInput from "../components/Input/TitleInput";
 import {AntDesign, MaterialCommunityIcons} from "@expo/vector-icons";
 
+const ParentContainer = styled.View`
+  background-color: #101010;
+  align-items: center;
+  flex: 1;
+`;
+
+const EditView = styled.View`
+  flex-direction: row;
+  padding: 10px;
+  border-color: #8E8E8E;
+  border-bottom-width: 1px;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+const ExplainView = styled.View`
+  height: 150px;
+  background-color: #101010;
+  padding: 10px;
+  width: 110%;
+`;
+const PhotoView = styled.View`
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #101010;
+`;
+
+const EditText = styled.Text`
+  color: white;
+  font-size: 20px;
+  padding-right: 10px;
+`;
+
 const EditSavePage = ({navigation}) => {
     const [isEnabled, setIsEnabled] = React.useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -74,37 +108,3 @@ const EditSavePage = ({navigation}) => {
 }
 
 export default EditSavePage;
-
-const ParentContainer = styled.View`
-  background-color: #101010;
-  align-items: center;
-  flex: 1;
-`;
-
-const EditView = styled.View`
-  flex-direction: row;
-  padding: 10px;
-  border-color: #8E8E8E;
-  border-bottom-width: 1px;
-  width: 100%;
-  justify-content: space-between;
-`;
-
-const ExplainView = styled.View`
-  height: 150px;
-  background-color: #101010;
-  padding: 10px;
-  width: 110%;
-`;
-const PhotoView = styled.View`
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: #101010;
-`;
-
-const EditText = styled.Text`
-  color: white;
-  font-size: 20px;
-  padding-right: 10px;
-`;
