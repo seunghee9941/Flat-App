@@ -21,8 +21,8 @@ export const ComposePage = ({navigation}) => {
         <ParentContainer>
             <Container>
                 <RoundButton state="GRAD_LARGE" name="녹음하기" pageName="RecordPage" nav={navigation}/>
-                <RoundButton state="GRAD_LARGE" name="편집하기" pageName="EditPage" nav={navigation}/>
-                <RoundButton state="GRAD_LARGE" name="무료 BGM" pageName="BgmPage" nav={navigation}/>
+                <RoundButton state="GRAD_LARGE" name="악보 불러오기" pageName="MusicSheetPage" nav={navigation}/>
+                <RoundButton state="GRAD_LARGE" name="편집 하기" pageName="EditPage" nav={navigation}/>
             </Container>
         </ParentContainer>
     );
