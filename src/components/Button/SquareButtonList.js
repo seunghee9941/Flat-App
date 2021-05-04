@@ -28,7 +28,7 @@ export const SquareButtonList = ({ effects }) => {
     const second = effects.slice(3,6);
 
     return(
-        <View>
+        <>
             <ButtonWrapper style={[{alignItems: 'flex-start'}]}>
                 {first.map((name, i) => (
                     <Pressable
@@ -55,6 +55,6 @@ export const SquareButtonList = ({ effects }) => {
                     </Pressable>
                 ))}
             </ButtonWrapper>
-        </View>
+        </>
     );
 };

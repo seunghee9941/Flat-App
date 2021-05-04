@@ -19,6 +19,7 @@ const EditView = styled.View`
   border-bottom-width: 1px;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 `;
 
 const ExplainView = styled.View`
@@ -26,6 +27,7 @@ const ExplainView = styled.View`
   background-color: #101010;
   padding: 10px;
   width: 110%;
+  justify-content: center;
 `;
 const PhotoView = styled.View`
   width: 100%;

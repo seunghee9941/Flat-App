@@ -11,7 +11,7 @@ const InputContainer=styled.View`
 `;
 
 const InputView = styled.View`
-  width: 60%;
+  width: ${props => props.width ? 60 : 90}%;
   height:30px;
   margin:5px;
   background-color: #101010;
@@ -47,7 +47,7 @@ const UnderLineInput = (props) => {
         {props.icon &&
           <MaterialCommunityIcons name={props.name} size={30} color="white" style={{padding: '2.5%'}}/>
         }
-        <InputView isFocus={isFocus}>
+        <InputView isFocus={isFocus} width={props.icon}>
             <InputText
                 value={text}
                 onChangeText={
