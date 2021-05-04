@@ -19,12 +19,11 @@ const StyledText= styled.Text`
 
 const TopBar = () => {
     return (
-
         <Container>
             <StyledText>Flat</StyledText>
         </Container>
-        );
-    };
+    );
+};
 
 
 export default TopBar;
