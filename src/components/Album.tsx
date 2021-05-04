@@ -70,14 +70,13 @@ const LikedContainer = styled.View`
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
 `;
 
 const AlbumText = styled.View<StyleProps2>`
   padding-top: ${props => props.isHorizontal ? 0 : 3}px;
   padding-left: 10px;
-  font-family: NanumSquare;
 `;
 
 export const Album = ({state, liked, coverURL, title, time, artist, description}: AlbumProps) => {
@@ -122,7 +121,12 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             }
             {liked ?
               <LikedContainer>
-                <MaterialCommunityIcons name="heart" size={22} color="white" />
+                <MaterialCommunityIcons name="lock" size={25} color="white"
+                                        style={{
+                                          shadowOpacity: 0.7,
+                                          textShadowColor: '#101010',
+                                          textShadowRadius: 3,
+                                          textShadowOffset: { width: 0, height: 0 }}}/>
               </LikedContainer>
             : null}
           </AlbumImageView>

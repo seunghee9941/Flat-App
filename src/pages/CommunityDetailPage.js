@@ -25,7 +25,7 @@ const AlbumContainer = styled.View`
 `;
 
 const IconContainer = styled.View`
-    width: 14%;
+    width: 50px;
     position: absolute;
     flex-direction: row;
     justify-content: space-between;

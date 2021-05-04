@@ -70,17 +70,17 @@ export const SignUpPage =({ navigation }) => {
             <RegisterView>
                 <UnderLineInput name={'email-outline'} state="Email" setValue={setEmail}
                                 type="email" line='이메일' keyType="next" refName={refId} nextRef={refPw}
-                                onChangeText={(e) =>setEmail(e)} description={validateEmail(email)}/>
+                                onChangeText={(e) =>setEmail(e)} description={validateEmail(email)} icon={true}/>
                 <UnderLineInput name={'lock'} value={pw} state="Pw" line='비밀번호' setValue={setPw}
                                 keyType="next" refName={refPw} nextRef={refIdCheck} hide={true}
                                 onChangeText={(e) =>setPw(e)}
-                                description={validatePw(pw)}/>
+                                description={validatePw(pw)} icon={true}/>
                 <UnderLineInput name={'check-circle-outline'} value={pwCheck} state="PwCheck" setValue={setPwCheck}
                                 line='비밀번호 확인' keyType="next" refName={refIdCheck} nextRef={refNick} hide={true}
                                 onChangeText={(e) =>setPwCheck(e)}
-                                description={validatePwCheck(pwCheck)}/>
+                                description={validatePwCheck(pwCheck)} icon={true}/>
                 <UnderLineInput name={'emoticon-happy-outline'} value={nickName} line='닉네임' refName={refNick} nextRef={null}
-                                setValue={setNickName} />
+                                setValue={setNickName} icon={true}/>
             </RegisterView>
             <RoundButton state="COLOR_SMALL" name="가입하기" pageName="LoginPage" nav={navigation}/>
         </ParentContainer>
