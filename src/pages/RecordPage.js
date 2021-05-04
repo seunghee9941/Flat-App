@@ -103,7 +103,7 @@ export const RecordPage = ({ toggleButton, navigation }) => {
 
     export default RecordPage;
 
-    export const RECORDING_OPTIONS_PRESET_HIGH_QUALITY: RecordingOptions = {
+    export const RECORDING_OPTIONS_PRESET_HIGH_QUALITY = {
         isMeteringEnabled: true,
         android: {
             extension: '.wav',

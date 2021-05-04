@@ -1,8 +1,8 @@
 import React, {useRef, useState} from "react";
 import styled from 'styled-components/native';
-import IdInput from "../components/Input/IdInput";
+import UnderLineInput from "../components/Input/UnderLineInput";
 import {Image} from "react-native";
-import {RoundButton} from "../components/RoundButton";
+import {RoundButton} from "../components/Button/RoundButton";
 
 const RegisterView = styled.View`
   height: 300px;
@@ -68,19 +68,19 @@ export const SignUpPage =({ navigation }) => {
                 <Image source={require('../../assets/images/logo.png')}/>
             </LogoView>
             <RegisterView>
-                <IdInput name={'email-outline'} state="Email" setValue={setEmail}
-                         type="email" line='이메일' keyType="next" refName={refId} nextRef={refPw}
-                         onChangeText={(e) =>setEmail(e)} description={validateEmail(email)}/>
-                <IdInput name={'lock'} value={pw} state="Pw" line='비밀번호' setValue={setPw}
-                         keyType="next" refName={refPw} nextRef={refIdCheck} hide={true}
-                         onChangeText={(e) =>setPw(e)}
-                         description={validatePw(pw)}/>
-                <IdInput name={'check-circle-outline'} value={pwCheck} state="PwCheck" setValue={setPwCheck}
-                         line='비밀번호 확인' keyType="next" refName={refIdCheck} nextRef={refNick} hide={true}
-                         onChangeText={(e) =>setPwCheck(e)}
-                         description={validatePwCheck(pwCheck)}/>
-                <IdInput name={'emoticon-happy-outline'} value={nickName} line='닉네임' refName={refNick} nextRef={null}
-                         setValue={setNickName} />
+                <UnderLineInput name={'email-outline'} state="Email" setValue={setEmail}
+                                type="email" line='이메일' keyType="next" refName={refId} nextRef={refPw}
+                                onChangeText={(e) =>setEmail(e)} description={validateEmail(email)} icon={true}/>
+                <UnderLineInput name={'lock'} value={pw} state="Pw" line='비밀번호' setValue={setPw}
+                                keyType="next" refName={refPw} nextRef={refIdCheck} hide={true}
+                                onChangeText={(e) =>setPw(e)}
+                                description={validatePw(pw)} icon={true}/>
+                <UnderLineInput name={'check-circle-outline'} value={pwCheck} state="PwCheck" setValue={setPwCheck}
+                                line='비밀번호 확인' keyType="next" refName={refIdCheck} nextRef={refNick} hide={true}
+                                onChangeText={(e) =>setPwCheck(e)}
+                                description={validatePwCheck(pwCheck)} icon={true}/>
+                <UnderLineInput name={'emoticon-happy-outline'} value={nickName} line='닉네임' refName={refNick} nextRef={null}
+                                setValue={setNickName} icon={true}/>
             </RegisterView>
             <RoundButton state="COLOR_SMALL" name="가입하기" pageName="LoginPage" nav={navigation}/>
         </ParentContainer>

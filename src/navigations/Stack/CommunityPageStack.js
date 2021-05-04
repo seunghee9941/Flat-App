@@ -1,8 +1,8 @@
 import {CardStyleInterpolators, createStackNavigator} from "@react-navigation/stack";
-import {CommunityDetailPage} from "../pages/CommunityDetailPage";
+import {CommunityDetailPage} from "../../pages/CommunityDetailPage";
 import React from "react";
-import {CommunityPage} from "../pages/CommunityPage";
-import TobBar from "../components/TopBar";
+import {CommunityPage} from "../../pages/CommunityPage";
+import TobBar from "../../components/Logo";
 
 const Stack = createStackNavigator();
 

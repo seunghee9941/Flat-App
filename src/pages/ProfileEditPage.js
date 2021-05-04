@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import styled from 'styled-components/native';
 import {Image, Text, Switch, Button, View, Dimensions, KeyboardAvoidingView} from "react-native";
-import MessageInput from "../components/Input/MessageInput";
-import {Profile} from "../components/Profile";
+import LargeSquareInput from "../components/Input/LargeSquareInput";
+import {ProfileImage} from "../components/ProfileImage";
 
 
 const Container = styled.View`
@@ -46,7 +46,7 @@ const Introduce=styled.View`
   width: ${Dimensions.get('window').width}px;
   justify-content: space-between;
 `;
-export const SettingPage =({navigation}) => {
+export const ProfileEditPage =({navigation}) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -58,7 +58,7 @@ export const SettingPage =({navigation}) => {
                 style={{ flex: 1 }}
             >
             <ProfileView>
-                <Profile size={'LARGE'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
+                <ProfileImage size={'LARGE'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
                 <Text style={{color: 'white'}}>프로필 설정</Text>
             </ProfileView>
             <UserView>
@@ -67,7 +67,7 @@ export const SettingPage =({navigation}) => {
             </UserView>
             <Introduce>
                 <StyledText>소개</StyledText>
-                <MessageInput/>
+                <LargeSquareInput/>
             </Introduce>
             <UserView>
                 <StyledText>알림 설정</StyledText>

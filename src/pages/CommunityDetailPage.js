@@ -4,7 +4,7 @@ import { Pressable, FlatList, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Album } from "../components/Album";
 import { Comment } from "../components/Comment";
-import CommentInput from "../components/Input/CommentInput";
+import SmallSquareInput from "../components/Input/SmallSquareInput";
 
 const ParentContainer = styled.SafeAreaView`
     flex: 1;
@@ -102,7 +102,7 @@ export const CommunityDetailPage = () => {
                 keyExtractor={(item)=>item.id}
                 ListHeaderComponent={HeaderComponent}
             />
-            <CommentInput/>
+            <SmallSquareInput/>
         </ParentContainer>
     );
 };

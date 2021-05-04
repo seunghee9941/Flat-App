@@ -2,9 +2,9 @@ import * as React from 'react';
 import {useLayoutEffect} from "react";
 import {Image, Switch, Text, TouchableOpacity} from "react-native";
 import styled from "styled-components/native";
-import MessageInput from "../components/Input/MessageInput";
-import TitleInput from "../components/Input/TitleInput";
+import LargeSquareInput from "../components/Input/LargeSquareInput";
 import {AntDesign, MaterialCommunityIcons} from "@expo/vector-icons";
+import UnderLineInput from "../components/Input/UnderLineInput";
 
 const ParentContainer = styled.View`
   background-color: #101010;
@@ -80,12 +80,12 @@ const EditSavePage = ({navigation}) => {
             </TouchableOpacity>
             <EditView>
                 <EditText>제목</EditText>
-                <TitleInput/>
+                <UnderLineInput keyType="done" nextRef={null} icon={false}/>
             </EditView>
             <EditView>
                 <EditText>설명</EditText>
                 <ExplainView>
-                    <MessageInput/>
+                    <LargeSquareInput/>
                 </ExplainView>
             </EditView>
             <EditView>

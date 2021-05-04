@@ -1,8 +1,8 @@
 import {CardStyleInterpolators, createStackNavigator} from "@react-navigation/stack";
-import {HomePage} from "../pages/HomePage";
+import {PlayListPage} from "../../pages/PlayListPage";
 import React from "react";
-import {CommunityDetailPage} from "../pages/CommunityDetailPage";
-import TopBar from "../components/TopBar";
+import {CommunityDetailPage} from "../../pages/CommunityDetailPage";
+import Logo from "../../components/Logo";
 
 const Stack = createStackNavigator();
 
@@ -19,12 +19,12 @@ export const HomeStackNavigation = () => {
                     borderBottomWidth: 1
                 }
             }}>
-            <Stack.Screen name="Home" component={HomePage} options={{
-                headerTitle: <TopBar/>,
+            <Stack.Screen name="Home" component={PlayListPage} options={{
+                headerTitle: <Logo/>,
                 headerTitleAlign: "center",
             }}/>
             <Stack.Screen name="CommunityDetail" component={CommunityDetailPage} options={{
-                headerTitle: <TopBar/>,
+                headerTitle: <Logo/>,
                 headerTitleAlign: "center",
             }}/>
         </Stack.Navigator>

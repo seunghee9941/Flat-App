@@ -1,11 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
-import {HomePage} from "../pages/HomePage";
-import MyPageStack from "./MyPageStack";
-import {CommunityStackNavigation} from "./CommunityPageStack";
-import ComposePageStack from "./ComposePageStack";
-import {BgmPage} from "../pages/BgmPage";
+import {PlayListPage} from "../pages/PlayListPage";
+import MyPageStack from "./Stack/MyPageStack";
+import {CommunityStackNavigation} from "./Stack/CommunityPageStack";
+import ComposePageStack from "./Stack/ComposePageStack";
+import {EditListPage} from "../pages/EditListPage";
 import { AntDesign } from '@expo/vector-icons';
 import styled from "styled-components/native";
 
@@ -39,12 +39,12 @@ TabIcon.defaltProps = {
     center: false,
 }
 
-const Tab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 
 const TabNavigation = () => {
     return (
-        <Tab.Navigator initialRouteName="ComposePage"
-           tabBarOptions={{
+        <BottomTab.Navigator initialRouteName="ComposePage"
+                             tabBarOptions={{
                keyboardHidesTabBar: true,
                style:{
                    backgroundColor: '#101010',
@@ -55,22 +55,22 @@ const TabNavigation = () => {
                showLabel: false
            }}
         >
-            <Tab.Screen name="HomePage" component={HomePage} options={{
+            <BottomTab.Screen name="HomePage" component={PlayListPage} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'music-box-multiple':'music-box-multiple-outline', text: '보관함', focused: props.focused}),
             }}/>
-            <Tab.Screen name="BgmPage" component={BgmPage} options={{
+            <BottomTab.Screen name="BgmPage" component={EditListPage} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'file-document-edit':'file-document-edit-outline', text: '편곡', focused: props.focused}),
             }}/>
-            <Tab.Screen name="ComposePage" component={ComposePageStack} options={{
+            <BottomTab.Screen name="ComposePage" component={ComposePageStack} options={{
                 tabBarIcon: props=> TabIcon({...props, focused: props.focused, center: true}),
             }}/>
-            <Tab.Screen name="CommunityPage" component={CommunityStackNavigation} options={{
+            <BottomTab.Screen name="CommunityPage" component={CommunityStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'comment-processing':'comment-outline', text: '커뮤니티', focused: props.focused}),
             }}/>
-            <Tab.Screen name="MyPage" component={MyPageStack} options={{
+            <BottomTab.Screen name="MyPage" component={MyPageStack} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'account':'account-outline', text: '프로필', focused: props.focused}),
             }}/>
-        </Tab.Navigator>
+        </BottomTab.Navigator>
     );
 };
 
