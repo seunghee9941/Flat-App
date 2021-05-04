@@ -59,7 +59,7 @@ export const RoundButton = ({ state, name, pageName, nav }) => {
             </Pressable>
             }
             {state === 'GRAD_LARGE' &&
-            <GradientButton start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={ ['#54DE51','#51CDDE'] }>
+            <GradientButton start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={ ['#51DE5B','#51CDDE'] }>
                 <Pressable onPress={() => nav.navigate(pageName)}>
                     {({ pressed }) => (
                         <LargeButton

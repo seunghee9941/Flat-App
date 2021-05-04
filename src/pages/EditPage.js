@@ -6,16 +6,12 @@ import {SquareButtonList} from '../components/Button/SquareButtonList';
 import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 
 const FirstRoute = () => (
-    <View style={[styles.scene]}/>
-);
-
-const SecondRoute = () => (
     <View style={[styles.scene]}>
         <SquareButtonList effects={["Piano", "Drum", "Acoustic", "Electronic", "Saxophone", "Violin"]}/>
     </View>
 );
 
-const ThirdRoute = () => (
+const SecondRoute = () => (
     <View style={[styles.scene]}>
         <SquareButtonList effects={["BALLAD", "R&B", "Rock", "HIP HOP", "JAZZ", "DANCE"]}/>
     </View>
@@ -41,15 +37,13 @@ const ParentContainer = styled.View`
 export const EditPage = ({navigation}) => {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        {key: 'first', title: '악보편집'},
-        {key: 'second', title: '사운드'},
-        {key: 'third', title: '장르'},
+        {key: 'first', title: '사운드'},
+        {key: 'second', title: '장르'},
     ]);
 
     const renderScene = SceneMap({
         first: FirstRoute,
         second: SecondRoute,
-        third: ThirdRoute,
     });
 
     useLayoutEffect(() => {
@@ -92,7 +86,7 @@ export const EditPage = ({navigation}) => {
                         {...props}
                         style={styles.like}
                         indicatorStyle={{
-                            backgroundColor: '#87F8FF',
+                            backgroundColor: '#51CDDE',
                         }}
                     />
                 )}

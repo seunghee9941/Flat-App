@@ -26,12 +26,12 @@ const UserThirdView = styled.View`
 `;
 const OpenSingView = styled.View`
   flex: 2;
-  padding: 0px 10px 0px 10px;
+  padding: 0 10px 0 10px;
   justify-content: center;
 `;
 const LikeSingView = styled.View`
   flex: 2;
-  padding: 0px 10px 0px 10px;
+  padding: 0 10px 0 10px;
   justify-content: center;
 `;
 const AlbumView = styled.View`
@@ -57,10 +57,9 @@ export const ProfilePage = ({navigation}) => {
                     <ProfileImage size={'MEDIUM'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
-                        <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 5}}>
+                        <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 3}}>
                             <Button
-                                onPress={() => navigation.navigate('Setting')} title={"프로필편집"} color='#000000'
-                                style={{borderColor: 'white'}}/>
+                                onPress={() => navigation.navigate('Setting')} title={"프로필편집"} color='#101010'/>
                         </View>
                     </UserThirdView>
                 </UserSecondView>
