@@ -30,7 +30,7 @@ const ALBUM_SIZE = {
   'LIKE_SMALL': 140,
   'LIKE_LARGE': (Dimensions.get('window').width/2-40),
   'PLAY_SMALL': (Dimensions.get('window').width/8),
-  'PLAY_LARGE': 330,
+  'PLAY_LARGE': (Dimensions.get('window').width-40),
 }
 
 const AlbumHorizontalContainer = styled.View<StyleProps>`
