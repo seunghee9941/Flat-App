@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import {MaterialIcons, MaterialCommunityIcons, Ionicons} from '@expo/vector-icons';
 import styled, { css } from "styled-components/native";
 import * as url from "url";
 
@@ -72,8 +72,8 @@ const LikedContainer = styled.View`
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
 `;
 
 const AlbumText = styled.View<StyleProps2>`
@@ -124,7 +124,12 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
             }
             {liked ?
               <LikedContainer>
-                <MaterialCommunityIcons name="heart" size={22} color="white" />
+                <MaterialCommunityIcons name="lock" size={25} color="white"
+                                        style={{
+                                          shadowOpacity: 0.7,
+                                          textShadowColor: '#101010',
+                                          textShadowRadius: 3,
+                                          textShadowOffset: { width: 0, height: 0 }}}/>
               </LikedContainer>
             : null}
           </AlbumCover>

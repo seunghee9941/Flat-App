@@ -39,8 +39,7 @@ const TabNavigation = () => {
             }}/>
             <Tab.Screen name="ComposePage" component={ComposePageStack} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'plus-circle':'plus-circle-outline',}),
-                tabBarLabel: '작곡'
-            }}/>
+                tabBarLabel: ''}}/>
             <Tab.Screen name="CommunityPage" component={CommunityStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'comment-processing':'comment-outline',}),
                 tabBarLabel: '커뮤니티'
@@ -51,6 +50,6 @@ const TabNavigation = () => {
             }}/>
         </Tab.Navigator>
     );
-}
+};
 
 export default TabNavigation;

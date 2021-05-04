@@ -6,6 +6,7 @@ import {EditPage} from "../pages/EditPage";
 import TopBar from "../components/TopBar";
 import EditSavePage from "../pages/EditSavePage";
 import MusicSheetPage from "../pages/MusicSheetPage";
+import {MusicSheetPlayPage} from "../pages/MusicSheetPlayPage";
 
 const Stack = createStackNavigator();
 
@@ -47,6 +48,16 @@ const StackNavigation = () => {
                               },
                               headerTintColor: '#ffffff'
                           }}/>
+            <Stack.Screen name="EditSavePage" component={EditSavePage}
+                          options={{
+                              headerTitle: '',
+                              headerBackTitleVisible: false,
+                              headerStyle: {
+                                  elevation: 0,
+                                  backgroundColor: '#101010'
+                              },
+                              headerTintColor: '#ffffff'
+                          }}/>
             <Stack.Screen name="MusicSheetPage"
                           component={MusicSheetPage}
                           options={{
@@ -58,7 +69,8 @@ const StackNavigation = () => {
                               },
                               headerTintColor: '#ffffff'
                           }}/>
-            <Stack.Screen name="EditSavePage" component={EditSavePage}
+            <Stack.Screen name="MusicSheetPlayPage"
+                          component={MusicSheetPlayPage}
                           options={{
                               headerTitle: '',
                               headerBackTitleVisible: false,

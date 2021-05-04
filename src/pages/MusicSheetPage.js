@@ -50,7 +50,7 @@ const MusicSheetPage = ({navigation}) => {
                     size={30}
                     style={{marginRight: 11}}
                     color={tintColor}
-                    onPress={() => navigation.navigate("EditPage")}
+                    onPress={() => navigation.navigate("MusicSheetPlayPage")}
                 />
             ),
         });
