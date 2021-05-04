@@ -72,6 +72,6 @@ const TabNavigation = () => {
             }}/>
         </Tab.Navigator>
     );
-}
+};
 
 export default TabNavigation;
