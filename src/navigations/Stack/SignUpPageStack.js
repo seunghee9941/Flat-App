@@ -1,8 +1,8 @@
 import {CardStyleInterpolators, createStackNavigator} from "@react-navigation/stack";
 import React from "react";
-import {SignUpPage} from "../pages/SignUpPage";
-import {LoginPage} from "../pages/LoginPage";
-import TabNavigation from "./Tab";
+import {SignUpPage} from "../../pages/SignUpPage";
+import {LoginPage} from "../../pages/LoginPage";
+import TabNavigation from "../BottomTab";
 
 const Stack = createStackNavigator();
 

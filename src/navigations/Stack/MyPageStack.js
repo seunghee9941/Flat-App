@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button, Text} from "react-native";
+import {Button} from "react-native";
 import {CardStyleInterpolators, createStackNavigator} from '@react-navigation/stack';
-import {SettingPage} from "../pages/SettingPage";
-import {MyPage} from "../pages/MyPage";
-import TopBar from "../components/TopBar";
+import {ProfileEditPage} from "../../pages/ProfileEditPage";
+import {ProfilePage} from "../../pages/ProfilePage";
+import Logo from "../../components/Logo";
 
 const MyPageStack =createStackNavigator();
 
@@ -19,16 +19,15 @@ const StackNavigation = () => {
                     borderBottomWidth: 1
                 }
             }}>
-
                 <MyPageStack.Screen
                     name="MyPage"
-                    component={MyPage}
+                    component={ProfilePage}
                     options={{
-                        headerTitle : <TopBar/>,
+                        headerTitle : <Logo/>,
                         headerTitleAlign: "center",
                     }}
                 />
-                <MyPageStack.Screen name="Setting" component={SettingPage} options={{headerTitle: '',
+                <MyPageStack.Screen name="Setting" component={ProfileEditPage} options={{headerTitle: '',
                     headerBackTitleVisible: true,
                     headerBackTitle: '취소',
                     headerTintColor: '#ffffff',

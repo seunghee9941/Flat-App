@@ -31,7 +31,7 @@ const StyledView=styled.View`
   padding-bottom: 2%;  
 `;
 
-export const BgmPage =() => {
+export const EditListPage =() => {
     const renderAlbum=({item})=>(
         <StyledView>
             <TouchableOpacity>
@@ -44,7 +44,7 @@ export const BgmPage =() => {
     return (
         <ParentContainer>
             <Container2>
-                <StyledText>무료 BGM</StyledText>
+                <StyledText>안정했지</StyledText>
             </Container2>
             <ListView>
                 <FlatList data={albums}

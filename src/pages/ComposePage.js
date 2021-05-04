@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native';
-import {RoundButton} from "../components/RoundButton";
+import {RoundButton} from "../components/Button/RoundButton";
 
 const ParentContainer = styled.SafeAreaView`
   flex: 1;
@@ -21,7 +21,7 @@ export const ComposePage = ({navigation}) => {
         <ParentContainer>
             <Container>
                 <RoundButton state="GRAD_LARGE" name="녹음하기" pageName="RecordPage" nav={navigation}/>
-                <RoundButton state="GRAD_LARGE" name="악보 불러오기" pageName="MusicSheetPage" nav={navigation}/>
+                <RoundButton state="GRAD_LARGE" name="악보 불러오기" pageName="SheetUploadPage" nav={navigation}/>
                 <RoundButton state="GRAD_LARGE" name="편집 하기" pageName="EditPage" nav={navigation}/>
             </Container>
         </ParentContainer>

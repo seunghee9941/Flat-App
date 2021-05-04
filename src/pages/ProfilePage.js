@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components/native';
-import { FlatList, Text, TouchableOpacity, View, Button} from "react-native";
+import { FlatList, Text, TouchableOpacity, View, Button } from "react-native";
 import { Album } from "../components/Album";
-import { Profile } from "../components/Profile";
+import { ProfileImage } from "../components/ProfileImage";
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -47,14 +47,14 @@ const StyledText = styled.Text`
 `;
 
 //받아와야할 것, UserName, Image, introduce, 공개 허용한 곡의 정보, 좋아요 등록한 곡의 정보
-export const MyPage = ({navigation}) => {
+export const ProfilePage = ({navigation}) => {
     return (
 
         <Container>
             <UserFirstView>
                 <StyledText>User Name</StyledText>
                 <UserSecondView>
-                    <Profile size={'MEDIUM'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
+                    <ProfileImage size={'MEDIUM'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                         <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 5}}>

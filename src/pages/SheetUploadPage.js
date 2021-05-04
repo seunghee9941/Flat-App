@@ -27,7 +27,7 @@ const ButtonIcon = styled(MaterialCommunityIcons).attrs({
 `;
 
 
-const MusicSheetPage = ({navigation}) => {
+const SheetUploadPage = ({navigation}) => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -65,4 +65,4 @@ const MusicSheetPage = ({navigation}) => {
     );
 };
 
-export default MusicSheetPage;
+export default SheetUploadPage;

@@ -80,7 +80,7 @@ const StyledText=styled.Text`
   color: #ffffff;
 `;
 
-export const HomePage =() =>{
+export const PlayListPage =() =>{
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: 'BGM'},

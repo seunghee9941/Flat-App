@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {Ionicons} from "@expo/vector-icons";
-import {Pressable} from "react-native";
-
-const Container = styled.SafeAreaView`
-  
-`;
+import {Pressable, SafeAreaView} from "react-native";
 
 const InputContainer = styled.View`
   border-radius: 5px;
@@ -19,7 +15,7 @@ const InputContainer = styled.View`
   flex-direction: row;
 `;
 
-const CommentInputText=styled.TextInput`
+const InputText=styled.TextInput`
   width: 90%;
   height: 40px;
   font-size: 15px;
@@ -31,21 +27,21 @@ const IconView = styled.View`
   justify-content: center;
 `;
 
-const CommentInput = () => {
-    const [comment, setComment] = React.useState('');
-    const [CommentFocus, setCommentFocus] = React.useState(false);
+const SmallSquareInput = () => {
+    const [text, setText] = React.useState('');
+    const [isFocused, setIsFocused] = React.useState(false);
 
     return (
-        <Container>
-            <InputContainer isFocus={CommentFocus}>
-                <CommentInputText
-                    isFocus={CommentFocus}
+        <SafeAreaView>
+            <InputContainer isFocus={isFocused}>
+                <InputText
+                    isFocus={isFocused}
                     underlineColorAndroid='transparent'
-                    value={comment}
-                    onChangeText={(comment) => setComment(comment)}
+                    value={text}
+                    onChangeText={(comment) => setText(comment)}
                     placeholder=""
-                    onFocus={() => setCommentFocus(true)}
-                    onBlur={() => setCommentFocus(false)}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
                     returnKeyType="done"
                 />
                 <IconView>
@@ -56,7 +52,7 @@ const CommentInput = () => {
                     </Pressable>
                 </IconView>
             </InputContainer>
-        </Container>
+        </SafeAreaView>
     );
 };
-export default CommentInput;
+export default SmallSquareInput;

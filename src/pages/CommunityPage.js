@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native';
-import TopBar from "../components/TopBar";
+import Logo from "../components/Logo";
 import { FlatList, TouchableOpacity } from "react-native";
 import { Album } from "../components/Album";
 

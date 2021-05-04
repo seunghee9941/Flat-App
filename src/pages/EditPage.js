@@ -2,7 +2,7 @@ import React, {useLayoutEffect} from "react";
 import {View, Dimensions, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
-import {EffectButtons} from '../components/EffectButtons';
+import {SquareButtonList} from '../components/Button/SquareButtonList';
 import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
 
 const FirstRoute = () => (
@@ -11,13 +11,13 @@ const FirstRoute = () => (
 
 const SecondRoute = () => (
     <View style={[styles.scene]}>
-        <EffectButtons effects={["Piano", "Drum", "Acoustic", "Electronic", "Saxophone", "Violin"]}/>
+        <SquareButtonList effects={["Piano", "Drum", "Acoustic", "Electronic", "Saxophone", "Violin"]}/>
     </View>
 );
 
 const ThirdRoute = () => (
     <View style={[styles.scene]}>
-        <EffectButtons effects={["BALLAD", "R&B", "Rock", "HIP HOP", "JAZZ", "DANCE"]}/>
+        <SquareButtonList effects={["BALLAD", "R&B", "Rock", "HIP HOP", "JAZZ", "DANCE"]}/>
     </View>
 );
 

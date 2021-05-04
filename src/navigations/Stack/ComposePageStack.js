@@ -1,11 +1,11 @@
 import React from 'react';
 import {CardStyleInterpolators, createStackNavigator} from "@react-navigation/stack";
-import RecordPage from "../pages/RecordPage";
-import {ComposePage} from "../pages/ComposePage";
-import {EditPage} from "../pages/EditPage";
-import TopBar from "../components/TopBar";
-import EditSavePage from "../pages/EditSavePage";
-import MusicSheetPage from "../pages/MusicSheetPage";
+import RecordPage from "../../pages/RecordPage";
+import {ComposePage} from "../../pages/ComposePage";
+import {EditPage} from "../../pages/EditPage";
+import Logo from "../../components/Logo";
+import EditSavePage from "../../pages/EditSavePage";
+import SheetUploadPage from "../../pages/SheetUploadPage";
 
 const Stack = createStackNavigator();
 
@@ -21,7 +21,7 @@ const StackNavigation = () => {
             }
         }}>
             <Stack.Screen name="ComposePage" component={ComposePage} options={{
-                headerTitle: <TopBar/>,
+                headerTitle: <Logo/>,
                 headerTitleAlign: "center",
             }}/>
             <Stack.Screen
@@ -47,8 +47,8 @@ const StackNavigation = () => {
                               },
                               headerTintColor: '#ffffff'
                           }}/>
-            <Stack.Screen name="MusicSheetPage"
-                          component={MusicSheetPage}
+            <Stack.Screen name="SheetUploadPage"
+                          component={SheetUploadPage}
                           options={{
                               headerTitle: '',
                               headerBackTitleVisible: false,

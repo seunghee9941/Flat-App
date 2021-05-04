@@ -1,29 +1,29 @@
 import React from 'react';
 import styled from 'styled-components/native'
 
-const Container = styled.View`
+const LogoView = styled.View`
   justify-content: center;
   align-self: stretch;
   height: 52px;
   align-items: center;
   background-color: #101010;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
   flex-direction: row;
 `;
-const StyledText= styled.Text`
+
+const LogoText= styled.Text`
   font-size: 30px;
   font-weight: bold;
   color: white;
 `;
 
-const TopBar = () => {
+const Logo = () => {
     return (
-        <Container>
-            <StyledText>Flat</StyledText>
-        </Container>
+        <LogoView>
+            <LogoText>Flat</LogoText>
+        </LogoView>
     );
 };
 
 
-export default TopBar;
+export default Logo;

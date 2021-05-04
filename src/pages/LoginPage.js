@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import styled from 'styled-components/native';
-import IdInput from "../components/Input/IdInput";
-import {RoundButton} from "../components/RoundButton";
+import UnderLineInput from "../components/Input/UnderLineInput";
+import {RoundButton} from "../components/Button/RoundButton";
 import {Image, Text} from "react-native";
 
 const Container = styled.View`
@@ -31,8 +31,8 @@ export const LoginPage =({ navigation }) => {
                 <Image source={require('../../assets/images/logo.png')}/>
             </LogoView>
             <LoginView>
-                <IdInput name="account-outline" state="Login" keyType="next" refName={refId} nextRef={refPw}/>
-                <IdInput name="lock" state="Login" keyType="done" refName={refPw} nextRef={null} hide={true}/>
+                <UnderLineInput name="account-outline" state="Login" keyType="next" refName={refId} nextRef={refPw}/>
+                <UnderLineInput name="lock" state="Login" keyType="done" refName={refPw} nextRef={null} hide={true}/>
                     <RoundButton state="COLOR_SMALL" name="로그인" pageName="HomeTab" nav={navigation}/>
                     <RoundButton state="GRAY_SMALL" name="회원가입" pageName="SignUpPage" nav={navigation}/>
                 <Text style={{color:'#ffffff', marginTop:10}}>구글 계정으로 로그인</Text>
