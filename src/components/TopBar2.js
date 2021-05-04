@@ -24,7 +24,6 @@ const StyledText= styled.Text`
 
 const TopBar2 = () => {
     return (
-
         <Container>
             <Text>취소</Text>
             <StyledText>Title</StyledText>
