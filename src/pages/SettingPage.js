@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from 'styled-components/native';
 import {Image, Text, Switch, Button, View, Dimensions, KeyboardAvoidingView} from "react-native";
 import MessageInput from "../components/Input/MessageInput";
+import {Profile} from "../components/Profile";
 
 
 const Container = styled.View`
@@ -57,7 +58,7 @@ export const SettingPage =({navigation}) => {
                 style={{ flex: 1 }}
             >
             <ProfileView>
-                <Image source={require('../../assets/images/joy.png')} style={{width:90, height:90 , borderRadius:15}}/>
+                <Profile size={'LARGE'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
                 <Text style={{color: 'white'}}>프로필 설정</Text>
             </ProfileView>
             <UserView>
