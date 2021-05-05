@@ -1,9 +1,10 @@
-import React, {useLayoutEffect} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import {View, Dimensions, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {SquareButtonList} from '../components/Button/SquareButtonList';
 import {Ionicons, MaterialCommunityIcons} from "@expo/vector-icons";
+import {MusicSheet} from "../components/MusicSheet";
 
 const FirstRoute = () => (
     <View style={[styles.scene]}>
@@ -18,21 +19,59 @@ const SecondRoute = () => (
 );
 
 const initialLayout = {width: Dimensions.get('window').width};
+
 // MusicSheet들어갈 자리 임시방편
-const Container = styled.View`
-  justify-content: center;
-  align-self: stretch;
-  height: 248px;
-  align-items: center;
+const Container = styled.ScrollView`
   background-color: #FFFFFF;
   border-width: 1px;
   flex-direction: row;
   border-bottom-color: #8E8E8E;
+    flex: 1;
 `;
 
 const ParentContainer = styled.View`
   flex: 1;
 `;
+
+const getTop = (note) => {
+    switch (note) {
+        case "C3": // 주작
+            return 48;
+        case "C4":
+            return 60;
+        case "D4":
+            return 62;
+        case "E4":
+            return 64;
+        case "F4":
+            return 65;
+        case "G4":
+            return 67;
+        case "A4":
+            return 69;
+        case "B4":
+            return 71;
+        case "C5":
+            return 72;
+        case "G5": // 주작
+            return 79;
+        case "C6": // 주작
+            return 84;
+        default:
+            return 60;
+    }
+}
+
+const getLeft = (index) => {
+    return index * 30 + 20
+}
+
+const notes = ["C4", "F4", "G5", "D4", "B4", "D4", "C3", "F4", "C6", "D4", "C5", "C4", "F4", "A4", "D4", "G4"];
+const X = notes.map((note) => getTop(note)*2)
+const Y = notes.map((note, index) => getLeft(index))
+const result = X.map((x, i) => {
+    return [x, Y[i]]
+})
 
 export const EditPage = ({navigation}) => {
     const [index, setIndex] = React.useState(0);
@@ -75,7 +114,9 @@ export const EditPage = ({navigation}) => {
     return (
         <ParentContainer>
             {/*<TopBar2/>*/}
-            <Container/>
+            <Container horizontal={true}>
+                <MusicSheet positions={result}/>
+            </Container>
             <TabView
                 navigationState={{index, routes}}
                 renderScene={renderScene}
