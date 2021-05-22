@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { Audio } from 'expo-av';
-import styled  from 'styled-components/native';
-import {RecordingOptions} from "expo-av/build/Audio/Recording";
-import {useLayoutEffect} from "react";
+import {Audio} from 'expo-av';
+import styled from 'styled-components/native';
+import {useEffect, useLayoutEffect,} from "react";
 import {AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import * as FileSystem from "expo-file-system/build/FileSystem";
+import {Button} from "react-native";
 
-
-//녹음하기 버튼 누르면 ComposePage -> 녹음
+// 녹음하기 버튼 누르면 ComposePage -> 녹음
 // 녹음에서 완료버튼 -> EditPage
 // 녹음에서 취소버튼 -> ComposePage
-//보내야할 것은 몇분몇초
+// 보내야할 것은 몇분몇초
 
-export const RecordPage = ({ toggleButton, navigation }) => {
+let rr = "";
+export const RecordPage = ({toggleButton, navigation}) => {
     const [recording, setRecording] = React.useState();
     const [sound, setSound] = React.useState();
     const [state, setState] = React.useState({recordingT: false});
@@ -25,7 +25,11 @@ export const RecordPage = ({ toggleButton, navigation }) => {
         }
     };
 
-    useLayoutEffect(()=> {
+    useEffect(() => {
+        init();
+    }, []);
+
+    useLayoutEffect(() => {
         navigation.setOptions({
             headerTintColor: '#ffffff',
 
@@ -34,7 +38,7 @@ export const RecordPage = ({ toggleButton, navigation }) => {
                     <MaterialCommunityIcons
                         name="keyboard-backspace"
                         size={30}
-                        style={{marginLeft:11}}
+                        style={{marginLeft: 11}}
                         color={tintColor}
                         onPress={onPress}
                     />
@@ -44,17 +48,16 @@ export const RecordPage = ({ toggleButton, navigation }) => {
                 <AntDesign
                     name="check"
                     size={30}
-                    style={{marginRight:11}}
+                    style={{marginRight: 11}}
                     color={tintColor}
-                    onPress={()=> navigation.navigate("EditPage")}
+                    onPress={() => navigation.navigate("EditPage")}
                 />
             ),
         });
-    },[]);
-
+    }, []);
 
     async function init() {
-        await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'records/');
+        await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'flat');
     }
 
     async function startRecording() {
@@ -77,55 +80,69 @@ export const RecordPage = ({ toggleButton, navigation }) => {
     }
 
     async function stopRecording() {
+        let r = Math.random().toString(36).substring(7);
         console.log('Stopping recording..');
         setRecording(undefined);
         await recording.stopAndUnloadAsync();
         const recordUri = recording.getURI();
-        // await FileSystem.moveAsync({from: recordUri, to: FileSystem.documentDirectory + 'records/recorded.wav'})
-        // const test = FileSystem.documentDirectory + 'records/recorded.wav';
-        // const test2 = await FileSystem.getInfoAsync(test);
-        console.log(await FileSystem.getInfoAsync(recordUri));
-        console.log('Recording stopped and stored at', recordUri);
+        console.log(recordUri);
+        rr = r;
+        await FileSystem.moveAsync({from: recordUri, to: FileSystem.documentDirectory + `flat/${r}.wav`});
+        console.log(await FileSystem.readDirectoryAsync(FileSystem.documentDirectory + `flat`));
+        console.log('Recording stopped and stored at', FileSystem.documentDirectory + `flat/${r}.wav`);
     }
 
-        return (
-
-            <Container>
-                <StyledPress
-                    onPress={recording ? stopRecording : startRecording}
-                    onPressOut={() => toggleButton()}>
-                    {state.recordingT ?
-                        <MaterialCommunityIcons name="stop" size={50} color="white" /> : <MaterialCommunityIcons name="microphone-settings" size={50} color="white" /> }
-                </StyledPress>
-            </Container>
-        );
+    async function playSound() {
+        console.log('Loading Sound');
+        const soundObject = new Audio.Sound();
+        console.log(`${rr}.wav`);
+        const path = FileSystem.documentDirectory + `flat/${rr}.wav`;
+        try {
+            await soundObject.loadAsync({uri:path});
+            await soundObject.playAsync();
+        } catch (error) {
+            console.log("Error", error);
+        }
     }
 
-    export default RecordPage;
 
-    export const RECORDING_OPTIONS_PRESET_HIGH_QUALITY = {
-        isMeteringEnabled: true,
-        android: {
-            extension: '.wav',
-            sampleRate: 44100,
-            numberOfChannels: 2,
-            bitRate: 128000,
-        },
-    };
+    React.useEffect(() => {
+        return sound
+            ? () => {
+                console.log('Unloading Sound');
+                Audio.Sound.unloadAsync(); }
+            : undefined;
+    }, [sound]);
 
-    const Container = styled.View`
-      flex: 1;
-      justify-content: center;
-      align-items: center;
-      background-color: #101010;
-    `;
+    return (
+        <Container>
+            <StyledPress
+                onPress={recording ? stopRecording : startRecording}
+                onPressOut={() => toggleButton()}>
+                {state.recordingT ?
+                    <MaterialCommunityIcons name="stop" size={50} color="white"/> :
+                    <MaterialCommunityIcons name="microphone-settings" size={50} color="white"/>}
+            </StyledPress>
+            <Button title={"START SOUND"} onPress={playSound}/>
+        </Container>
+    );
+}
 
-    const StyledPress = styled.Pressable`
-      width: 222px;
-      height: 222px;
-      border-radius: 111px;
-      border-width: 15px;
-      border-color : #51CDDE ;
-      align-items: center;
-      justify-content: center;
-    `;
+export default RecordPage;
+
+const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #101010;
+`;
+
+const StyledPress = styled.Pressable`
+  width: 222px;
+  height: 222px;
+  border-radius: 111px;
+  border-width: 15px;
+  border-color: #51CDDE;
+  align-items: center;
+  justify-content: center;
+`;
