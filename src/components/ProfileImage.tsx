@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import {Dimensions} from "react-native";
+import {Dimensions, ImageSourcePropType} from "react-native";
 
 interface StyleProps {
   size: number
@@ -8,7 +8,7 @@ interface StyleProps {
 
 type ProfileProps = {
   size: 'SMALL' | 'MEDIUM' | 'LARGE',
-  imgURL: string,
+  imgURL: ImageSourcePropType,
 }
 
 const ALBUM_SIZE = {
@@ -31,7 +31,7 @@ const UserImage = styled.Image`
 export const ProfileImage = ({size, imgURL}: ProfileProps) => {
   return(
     <ProfileImageView size={ALBUM_SIZE[size]}>
-      <UserImage source={{uri: imgURL}}/>
+      <UserImage source={imgURL}/>
     </ProfileImageView>
   )
 };
