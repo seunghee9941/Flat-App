@@ -54,7 +54,7 @@ export const ProfilePage = ({navigation}) => {
             <UserFirstView>
                 <StyledText>User Name</StyledText>
                 <UserSecondView>
-                    <ProfileImage size={'MEDIUM'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
+                    <ProfileImage size={'MEDIUM'} imgURL={{uri: "https://reactnative.dev/img/tiny_logo.png"}}/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                         <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 3}}>
@@ -68,7 +68,7 @@ export const ProfilePage = ({navigation}) => {
             <OpenSingView>
                 <StyledText>공개 허용한 곡</StyledText>
                 <FlatList
-                    data={albums}
+                    data={myAlbums}
                     keyExtractor={(item) => item.id}
                     showsHorizontalScrollIndicator={false}
                     horizontal
@@ -76,7 +76,7 @@ export const ProfilePage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album title={item.title} state={item.state} description={item.description} isPublic={true}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -86,7 +86,7 @@ export const ProfilePage = ({navigation}) => {
             <LikeSingView>
                 <StyledText>스크랩한 곡</StyledText>
                 <FlatList
-                    data={albums}
+                    data={scrapedAlbums}
                     keyExtractor={(item) => item.id}
                     showsHorizontalScrollIndicator={false}
                     horizontal
@@ -94,7 +94,7 @@ export const ProfilePage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album title={item.title} state={item.state} description={item.description} liked={true}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -105,7 +105,7 @@ export const ProfilePage = ({navigation}) => {
     );
 };
 
-const albums = [
+const myAlbums = [
     {
         id: "1",
         title: '조이',
@@ -113,7 +113,7 @@ const albums = [
         description: '깔깔깔',
         time: '1:20',
         artist: '보경',
-        liked: true
+        isPublic: true
     },
     {
         id: "2",
@@ -122,7 +122,7 @@ const albums = [
         description: '흐애애앵',
         time: '1:20',
         artist: '보경',
-        liked: true
+        isPublic: false
     },
     {
         id: "3",
@@ -131,6 +131,36 @@ const albums = [
         description: '슬퍼!',
         time: '1:20',
         artist: '보경',
-        liked: true
+        isPublic: true
     },
+];
+
+const scrapedAlbums = [
+  {
+    id: "1",
+    title: '조이',
+    state: 'LIKE_SMALL',
+    description: '깔깔깔',
+    time: '1:20',
+    artist: '보경',
+    liked: true
+  },
+  {
+    id: "2",
+    title: '슬픔이',
+    state: 'LIKE_SMALL',
+    description: '흐애애앵',
+    time: '1:20',
+    artist: '보경',
+    liked: true
+  },
+  {
+    id: "3",
+    title: '소심이',
+    state: 'LIKE_SMALL',
+    description: '슬퍼!',
+    time: '1:20',
+    artist: '보경',
+    liked: true
+  },
 ];

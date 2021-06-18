@@ -5,7 +5,8 @@ const InputContainer = styled.SafeAreaView`
   background-color: #101010;
   height: 90%;
   width: 80%;
-  padding: 3%;
+  align-items: center;
+  padding: 10px;
   border-width: 2px;
   border-radius: 5px;
   border-color: ${props => props.isFocus ? "#51cdde":"#8E8E8E"};
@@ -13,9 +14,9 @@ const InputContainer = styled.SafeAreaView`
 `;
 
 const InputText=styled.TextInput`
-  width: 100%;
+  width: 90%;
   height: 100%;
-  font-size: 14px;
+  font-size: 16px;
   color: #FFFFFF;
 `;
 

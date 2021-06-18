@@ -113,7 +113,7 @@ const EditSavePage = ({navigation}) => {
             </TouchableOpacity>
             <EditView>
                 <EditText>제목</EditText>
-                <UnderLineInput keyType="done" nextRef={null} icon={false}/>
+                <UnderLineInput keyType="done" nextRef={null} icon={false} state="normal"/>
             </EditView>
             <EditView>
                 <EditText>설명</EditText>

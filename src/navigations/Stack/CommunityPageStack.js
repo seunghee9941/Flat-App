@@ -13,7 +13,7 @@ export const CommunityStackNavigation = () => {
             headerStyle: {
                 backgroundColor: '#101010',
                 elevation: 0,
-                borderBottomColor: 'white',
+                borderBottomColor: '#8E8E8E',
                 borderBottomWidth: 1
             }
         }}>

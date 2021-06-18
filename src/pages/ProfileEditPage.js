@@ -59,7 +59,7 @@ const Introduce=styled.View`
 export const ProfileEditPage =({navigation}) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState('https://reactnative.dev/img/tiny_logo.png');
 
     useEffect(() => {
         (async () => {

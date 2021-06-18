@@ -36,7 +36,7 @@ export const EditListPage =() => {
         <StyledView>
             <TouchableOpacity>
                 <Container>
-                    <Album state={'PLAY_SMALL'} coverURL={item.coverURL} artist={item.artist} liked={item.liked} title={item.title}/>
+                    <Album state={'PLAY_SMALL'} coverURL={{uri: item.coverURL}} artist={item.artist} liked={item.liked} title={item.title}/>
                 </Container>
             </TouchableOpacity>
         </StyledView>
@@ -44,7 +44,7 @@ export const EditListPage =() => {
     return (
         <ParentContainer>
             <Container2>
-                <StyledText>안정했지</StyledText>
+                <StyledText>My Songs</StyledText>
             </Container2>
             <ListView>
                 <FlatList data={albums}

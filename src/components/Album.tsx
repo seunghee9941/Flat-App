@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Dimensions, Text, TouchableOpacity} from "react-native";
+import {Dimensions, ImageSourcePropType, Text, TouchableOpacity} from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styled from "styled-components/native";
 
@@ -18,11 +18,12 @@ interface StyleProps3 {
 type AlbumProps = {
   state: 'LIKE_SMALL' | 'LIKE_LARGE' | 'PLAY_SMALL' | 'PLAY_LARGE',
   liked: boolean,
+  isPublic: boolean,
   title: string,
   artist: string,
   time: string,
   description: string,
-  coverURL: string,
+  coverURL: ImageSourcePropType,
 };
 
 const ALBUM_SIZE = {
@@ -66,7 +67,7 @@ const PlayButton = styled.View`
   position: absolute;
 `;
 
-const LikedContainer = styled.View`
+const IconContainer = styled.View`
   position: absolute;
   right: 10px;
   top: 10px;
@@ -79,16 +80,17 @@ const AlbumText = styled.View<StyleProps2>`
   padding-left: 10px;
 `;
 
-export const Album = ({state, liked, coverURL, title, time, artist, description}: AlbumProps) => {
+export const Album = ({state, liked, isPublic, coverURL, title, time, artist, description}: AlbumProps) => {
 
   const [played, setPlayed] = useState(false);
+  const IconName = isPublic ? (liked ? 'cards-heart' : null) : 'lock';
 
   return (
     <>
       {state === 'PLAY_SMALL' ?
         <AlbumHorizontalContainer size={ALBUM_SIZE[state]}>
           <AlbumImageView size={ALBUM_SIZE[state]}>
-            <AlbumImage source={{uri: coverURL}} isPlayed={played}/>
+            <AlbumImage source={coverURL} isPlayed={played}/>
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
                 {played ?
@@ -107,7 +109,7 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
         :
         <AlbumContainer size={ALBUM_SIZE[state]}>
           <AlbumImageView size={ALBUM_SIZE[state]}>
-            <AlbumImage source={{uri: coverURL}} isPlayed={played}/>
+            <AlbumImage source={coverURL} isPlayed={played}/>
             { state === 'PLAY_LARGE' &&
             <PlayButton >
               <TouchableOpacity onPress={() => setPlayed(!played)}>
@@ -119,16 +121,17 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
               </TouchableOpacity>
             </PlayButton>
             }
-            {liked ?
-              <LikedContainer>
-                <MaterialCommunityIcons name="lock" size={25} color="white"
+            {IconName ?
+              <IconContainer>
+                <MaterialCommunityIcons name={IconName} size={25} color="white"
                                         style={{
                                           shadowOpacity: 0.7,
                                           textShadowColor: '#101010',
                                           textShadowRadius: 3,
                                           textShadowOffset: { width: 0, height: 0 }}}/>
-              </LikedContainer>
-            : null}
+              </IconContainer>
+              : null}
+
           </AlbumImageView>
           <AlbumText isHorizontal={false}>
             {state === 'LIKE_SMALL' && <Text style={{ fontSize: 12 , color: 'white'}}>{title}</Text> }
@@ -149,8 +152,9 @@ export const Album = ({state, liked, coverURL, title, time, artist, description}
 };
 
 Album.defaultProps = {
-  coverURL: 'https://reactnative.dev/img/tiny_logo.png',
+  coverURL: {uri:'https://reactnative.dev/img/tiny_logo.png'},
   liked: false,
+  isPublic: true,
   title: '제목',
   artist: '작곡가',
   time: '3:01',
