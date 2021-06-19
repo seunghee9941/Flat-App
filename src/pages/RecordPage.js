@@ -4,9 +4,9 @@ import styled from 'styled-components/native';
 import {useEffect, useLayoutEffect,} from "react";
 import {AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import * as FileSystem from "expo-file-system/build/FileSystem";
-import {Button} from "react-native";
-import * as tf from '@tensorflow/tfjs'
-import {bundleResourceIO, fetch} from "@tensorflow/tfjs-react-native";
+import {View} from "react-native";
+//import * as tf from '@tensorflow/tfjs'
+//import {bundleResourceIO, fetch} from "@tensorflow/tfjs-react-native";
 
 // 녹음하기 버튼 누르면 ComposePage -> 녹음
 // 녹음에서 완료버튼 -> EditPage
@@ -128,7 +128,6 @@ export const RecordPage = ({toggleButton, navigation}) => {
         }
     }
 
-
     React.useEffect(() => {
         return sound
             ? () => {
@@ -146,7 +145,9 @@ export const RecordPage = ({toggleButton, navigation}) => {
                     <MaterialCommunityIcons name="stop" size={50} color="white"/> :
                     <MaterialCommunityIcons name="microphone-settings" size={50} color="white"/>}
             </StyledPress>
-            <Button title={"START SOUND"} onPress={playSound}/>
+            <View style={{paddingTop:25}}>
+                <MaterialCommunityIcons name="play" size={40} color="white" onPress={playSound} />
+            </View>
             {/*<Button title={"Load"} onPress={loadModel}/>*/}
         </Container>
     );

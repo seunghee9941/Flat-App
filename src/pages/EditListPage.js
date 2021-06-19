@@ -19,7 +19,8 @@ const ParentContainer = styled.SafeAreaView`
   background-color: #101010;
 `;
 const ListView = styled.View`
-  margin: 2% 4% 2% 4%;  
+  margin: 2% 4% 2% 4%;
+  flex: 1;
 `;
 const StyledText=styled.Text`
   font-size: 30px;
@@ -31,10 +32,10 @@ const StyledView=styled.View`
   padding-bottom: 2%;  
 `;
 
-export const EditListPage =() => {
+export const EditListPage =({ navigation }) => {
     const renderAlbum=({item})=>(
         <StyledView>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('EditPage')}>
                 <Container>
                     <Album state={'PLAY_SMALL'} coverURL={item.coverURL} artist={item.artist} liked={item.liked} title={item.title}/>
                 </Container>
@@ -44,7 +45,7 @@ export const EditListPage =() => {
     return (
         <ParentContainer>
             <Container2>
-                <StyledText>안정했지</StyledText>
+                <StyledText>My Songs</StyledText>
             </Container2>
             <ListView>
                 <FlatList data={albums}
@@ -58,61 +59,61 @@ export const EditListPage =() => {
 const albums = [
     {
         id:"1",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '정말',
+        coverURL: require("../../assets/images/EditListImage/EditListImage1.jpg"),
+        title: '노래',
         artist: '작곡가',
         time: '3:01',
     },
     {
         id: "2",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '슬픔이',
+        coverURL: require("../../assets/images/EditListImage/EditListImage2.png"),
+        title: '노래2',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
     },
     {
         id: "3",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '소심이',
+        coverURL: require("../../assets/images/EditListImage/EditListImage3.png"),
+        title: '예진이의 댄스 노래',
         description: '슬퍼!',
         time: '1:20',
         artist:'보경',
     },
     {
         id: "4",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: 'Hello',
+        coverURL: require("../../assets/images/EditListImage/EditListImage4.jpg"),
+        title: '보경이의 엘레강스한 노래',
         description: '뭘봐?',
         time: '1:20',
         artist:'보경',
     },
     {
         id: "5",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '슬픔이',
+        coverURL: require("../../assets/images/EditListImage/EditListImage5.jpg"),
+        title: '소지의 멋쟁이 노래',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
     },
     {
         id: "6",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '슬픔이',
+        coverURL: require("../../assets/images/EditListImage/EditListImage6.png"),
+        title: '승희의 발라드',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
     },{
         id: "7",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '슬픔이',
+        coverURL: require("../../assets/images/EditListImage/EditListImage7.jpg"),
+        title: '노래3',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
     },{
         id: "8",
-        coverURL: 'https://reactnative.dev/img/tiny_logo.png',
-        title: '슬픔이',
+        coverURL: require("../../assets/images/EditListImage/EditListImage8.png"),
+        title: '노래4',
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',

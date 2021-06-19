@@ -54,7 +54,7 @@ export const ProfilePage = ({navigation}) => {
             <UserFirstView>
                 <StyledText>User Name</StyledText>
                 <UserSecondView>
-                    <ProfileImage size={'MEDIUM'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
+                    <ProfileImage size={'MEDIUM'} imgURL={require('../../assets/images/profileImage/albumDefaultImage.png')}/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                         <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 3}}>
@@ -68,7 +68,7 @@ export const ProfilePage = ({navigation}) => {
             <OpenSingView>
                 <StyledText>공개 허용한 곡</StyledText>
                 <FlatList
-                    data={albums}
+                    data={myAlbums}
                     keyExtractor={(item) => item.id}
                     showsHorizontalScrollIndicator={false}
                     horizontal
@@ -76,7 +76,7 @@ export const ProfilePage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album title={item.title} state={item.state} description={item.description}  coverURL={item.coverURL} isPublic={true}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -86,7 +86,7 @@ export const ProfilePage = ({navigation}) => {
             <LikeSingView>
                 <StyledText>스크랩한 곡</StyledText>
                 <FlatList
-                    data={albums}
+                    data={scrapedAlbums}
                     keyExtractor={(item) => item.id}
                     showsHorizontalScrollIndicator={false}
                     horizontal
@@ -94,7 +94,7 @@ export const ProfilePage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}/>
+                                    <Album title={item.title} state={item.state} description={item.description} liked={true} coverURL={item.coverURL}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -105,10 +105,11 @@ export const ProfilePage = ({navigation}) => {
     );
 };
 
-const albums = [
+const myAlbums = [
     {
+        coverURL: require("../../assets/images/profileImage/profilePage1.png"),
         id: "1",
-        title: '조이',
+        title: '노래1',
         state: 'LIKE_SMALL',
         description: '깔깔깔',
         time: '1:20',
@@ -116,8 +117,9 @@ const albums = [
         liked: true
     },
     {
+        coverURL: require("../../assets/images/profileImage/profilePage2.jpg"),
         id: "2",
-        title: '슬픔이',
+        title: '곰인형',
         state: 'LIKE_SMALL',
         description: '흐애애앵',
         time: '1:20',
@@ -125,8 +127,42 @@ const albums = [
         liked: true
     },
     {
+        coverURL: require("../../assets/images/profileImage/profilePage3.jpg"),
         id: "3",
-        title: '소심이',
+        title: '우주',
+        state: 'LIKE_SMALL',
+        description: '슬퍼!',
+        time: '1:20',
+        artist: '보경',
+        liked: true
+    },
+];
+
+const scrapedAlbums = [
+    {
+        coverURL: require("../../assets/images/profileImage/profilePage4.jpg"),
+        id: "1",
+        title: '나랑 사귀자',
+        state: 'LIKE_SMALL',
+        description: '깔깔깔',
+        time: '1:20',
+        artist: '보경',
+        liked: true
+    },
+    {
+        coverURL: require("../../assets/images/profileImage/profilePage5.jpg"),
+        id: "2",
+        title: '여정윤',
+        state: 'LIKE_SMALL',
+        description: '흐애애앵',
+        time: '1:20',
+        artist: '보경',
+        liked: true
+    },
+    {
+        coverURL: require("../../assets/images/profileImage/profilePage6.jpg"),
+        id: "3",
+        title: '무야호 Remix',
         state: 'LIKE_SMALL',
         description: '슬퍼!',
         time: '1:20',

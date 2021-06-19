@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardStyleInterpolators, createStackNavigator} from "@react-navigation/stack";
-import RecordPage from "../../pages/RecordPage";
 import {ComposePage} from "../../pages/ComposePage";
+import {RecordPage} from "../../pages/RecordPage";
 import {EditPage} from "../../pages/EditPage";
 import Logo from "../../components/Logo";
 import EditSavePage from "../../pages/EditSavePage";
@@ -17,7 +17,7 @@ const StackNavigation = () => {
             headerStyle: {
                 backgroundColor: '#101010',
                 elevation: 0,
-                borderBottomColor: 'white',
+                borderBottomColor: '#8E8E8E',
                 borderBottomWidth: 1
             }
         }}>
@@ -48,7 +48,8 @@ const StackNavigation = () => {
                               },
                               headerTintColor: '#ffffff'
                           }}/>
-            <Stack.Screen name="EditSavePage" component={EditSavePage}
+            <Stack.Screen name="EditSavePage"
+                          component={EditSavePage}
                           options={{
                               headerTitle: '',
                               headerBackTitleVisible: false,

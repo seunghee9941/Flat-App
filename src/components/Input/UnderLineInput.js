@@ -24,6 +24,8 @@ const InputView = styled.View`
 
 const InputText=styled.TextInput`
   width: 100%;
+  height: 95%;
+  font-size: 16px;
   color: #FFFFFF;
 `;
 
@@ -51,7 +53,7 @@ const UnderLineInput = (props) => {
             <InputText
                 value={text}
                 onChangeText={
-                    (e)=>{setText(e); props.state !=="Login" && props.setValue(e);}}
+                    (e)=>{setText(e); props.state !=="Login" && props.state !== "normal" && props.setValue(e);}}
                 placeholder={props.line}
                 placeholderTextColor="#8E8E8E"
                 onFocus={() => setIsFocus(true)}

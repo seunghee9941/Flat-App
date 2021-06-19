@@ -4,8 +4,8 @@ import { Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const SmallButton = styled.View`
-    padding: 0 10% 0 10%;
     height: 35px;
+    width: 150px;
     align-items: center;
     justify-content: center;
     border-radius: 5px;

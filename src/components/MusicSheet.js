@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Dimensions } from "react-native";
-import {Note} from "./Note";
+import Note from "./Note";
 import styled from "styled-components/native";
 
 const windowWidth = Dimensions.get("window").width;
@@ -13,13 +13,13 @@ const NoteContainer = styled.View`
 `;
 
 export const MusicSheet = ({positions}) => {
-  return (
-    <NoteContainer width={positions.length*30+40}>
-      {positions.map((pos, index) =>
-        <Note x={pos[1]} y={pos[0]} key={index}/>
-      )}
-    </NoteContainer>
-  )
+    return (
+        <NoteContainer width={positions.length*30+40}>
+            {positions.map((pos, index) =>
+                <Note x={pos[0]} y={pos[1]} key={index}/>
+            )}
+        </NoteContainer>
+    )
 }
 
 MusicSheet.defaultProps = {

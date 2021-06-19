@@ -5,7 +5,7 @@ import MyPageStack from "./Stack/MyPageStack";
 import {CommunityStackNavigation} from "./Stack/CommunityPageStack";
 import {PlayListStackNavigation} from "./Stack/PlayListPageStack";
 import ComposePageStack from "./Stack/ComposePageStack";
-import {EditListPage} from "../pages/EditListPage";
+import EditStackNavigation from "./Stack/EditPageStack"
 import { AntDesign } from '@expo/vector-icons';
 import styled from "styled-components/native";
 
@@ -26,8 +26,8 @@ const IconLabel = styled.Text`
 
 const TabIcon = ({name, color, text, focused, center})=> {
     return (
-      <IconView center={center} color={focused ? 'white' : 'black'}>
-          {center ? <AntDesign name="plus" size={24} color={focused ? 'black' : 'white'} />
+      <IconView center={center} color={focused ? 'white' : '#101010'}>
+          {center ? <AntDesign name="plus" size={24} color={focused ? '#101010' : 'white'} />
             :
             <><MaterialCommunityIcons name={name} color={color} size={24}/>
                 <IconLabel>{text}</IconLabel></>}
@@ -58,7 +58,7 @@ const TabNavigation = () => {
             <BottomTab.Screen name="PlayListPage" component={PlayListStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'music-box-multiple':'music-box-multiple-outline', text: '보관함', focused: props.focused}),
             }}/>
-            <BottomTab.Screen name="BgmPage" component={EditListPage} options={{
+            <BottomTab.Screen name="EditPage" component={EditStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'file-document-edit':'file-document-edit-outline', text: '편곡', focused: props.focused}),
             }}/>
             <BottomTab.Screen name="ComposePage" component={ComposePageStack} options={{
