@@ -5,7 +5,7 @@ import {PlayListPage} from "../pages/PlayListPage";
 import MyPageStack from "./Stack/MyPageStack";
 import {CommunityStackNavigation} from "./Stack/CommunityPageStack";
 import ComposePageStack from "./Stack/ComposePageStack";
-import {EditListPage} from "../pages/EditListPage";
+import EditStackNavigation from "./Stack/EditPageStack"
 import { AntDesign } from '@expo/vector-icons';
 import styled from "styled-components/native";
 
@@ -58,7 +58,7 @@ const TabNavigation = () => {
             <BottomTab.Screen name="HomePage" component={PlayListPage} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'music-box-multiple':'music-box-multiple-outline', text: '보관함', focused: props.focused}),
             }}/>
-            <BottomTab.Screen name="BgmPage" component={EditListPage} options={{
+            <BottomTab.Screen name="EditPage" component={EditStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'file-document-edit':'file-document-edit-outline', text: '편곡', focused: props.focused}),
             }}/>
             <BottomTab.Screen name="ComposePage" component={ComposePageStack} options={{

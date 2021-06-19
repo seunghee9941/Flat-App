@@ -13,7 +13,6 @@ const NoteContainer = styled.View`
 `;
 
 export const MusicSheet = ({positions}) => {
-    console.log(positions)
     return (
         <NoteContainer width={positions.length*30+40}>
             {positions.map((pos, index) =>
