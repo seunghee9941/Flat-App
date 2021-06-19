@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/sriracha": "^0.1.0",
     "@expo/vector-icons": "^12.0.4",
     "@react-native-async-storage/async-storage": "^1.15.5",
     "@react-native-community/async-storage": "^1.12.1",
@@ -19,12 +20,15 @@
     "@tensorflow/tfjs-react-native": "^0.5.0",
     "@types/styled-components-react-native": "^5.1.1",
     "expo": "~41.0.1",
+    "expo-app-loading": "^1.0.3",
     "expo-av": "^9.1.2",
+    "expo-font": "~9.1.0",
     "expo-camera": "^11.0.3",
     "expo-gl": "^10.3.0",
     "expo-image-picker": "^10.1.4",
     "expo-linear-gradient": "^9.1.0",
     "expo-permissions": "^12.0.1",
+    "expo-splash-screen": "~0.10.2",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
