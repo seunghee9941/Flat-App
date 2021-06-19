@@ -152,7 +152,7 @@ export const Album = ({state, liked, isPublic, coverURL, title, time, artist, de
 };
 
 Album.defaultProps = {
-  coverURL: {uri:'https://reactnative.dev/img/tiny_logo.png'},
+  coverURL: require("../../assets/images/profileImage/albumDefaultImage.png"),
   liked: false,
   isPublic: true,
   title: '제목',

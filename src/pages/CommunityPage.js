@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components/native';
-import Logo from "../components/Logo";
 import {FlatList, SafeAreaView, TouchableOpacity} from "react-native";
 import { Album } from "../components/Album";
 
@@ -43,65 +42,73 @@ export const CommunityPage =({ navigation }) => {
 
 const albums = [
     {
+        coverURL: require("../../assets/images/communityImage/communityImage1.jpg"),
         id: "1",
-        title: '조이',
+        title: '흥얼흥얼',
         description: '깔깔깔',
-        time: '1:20',
-        artist:'보경',
-        liked: false
+        time: '0:25',
+        artist: '라이언',
+        liked: true
     },
     {
+        coverURL: require("../../assets/images/communityImage/communityImage2.jpg"),
         id: "2",
-        title: '슬픔이',
+        title: '둠치둠칫',
         description: '흐애애앵',
         time: '1:20',
-        artist:'보경',
+        artist: '뚱이',
         liked: true
     },
     {
+        coverURL: require("../../assets/images/communityImage/communityImage3.jpg"),
         id: "3",
-        title: '소심이',
+        title: '포로리야',
         description: '슬퍼!',
-        time: '1:20',
-        artist:'보경',
-        liked: false
-    },
-    {
-        id: "4",
-        title: 'Hello',
-        description: '뭘봐?',
-        time: '1:20',
-        artist:'보경',
-        liked: false
-    },
-    {
-        id: "5",
-        title: '슬픔이',
-        description: '흐애애앵',
-        time: '1:20',
-        artist:'보경',
+        time: '1:00',
+        artist: '보노보노',
         liked: true
     },
     {
+        coverURL: require("../../assets/images/communityImage/communityImage4.jpg"),
+        id: "4",
+        title: '신나는 노래',
+        description: '뭘봐?',
+        time: '0:45',
+        artist: '토끼',
+        liked: true
+    },
+    {
+        coverURL: require("../../assets/images/communityImage/communityImage5.jpg"),
+        id: "5",
+        title: '술먹고 부른 노래',
+        description: '흐애애앵',
+        time: '1:05',
+        artist: '올라프',
+        liked: true
+    },
+    {
+        coverURL: require("../../assets/images/communityImage/communityImage6.jpg"),
         id: "6",
         title: '슬픔이',
         description: '흐애애앵',
         time: '1:20',
-        artist:'보경',
+        artist: '보경',
         liked: true
-    },{
+    }, {
+        coverURL: require("../../assets/images/communityImage/communityImage7.jpg"),
         id: "7",
         title: '슬픔이',
         description: '흐애애앵',
         time: '1:20',
-        artist:'보경',
-        liked: false
-    },{
+        artist: '보경',
+        liked: true
+    }, {
+        coverURL: require("../../assets/images/communityImage/communityImage7.jpg"),
         id: "8",
         title: '슬픔이',
         description: '흐애애앵',
         time: '1:20',
-        artist:'보경',
+        artist: '보경',
         liked: true
     },
 ];
