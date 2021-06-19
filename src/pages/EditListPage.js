@@ -31,10 +31,10 @@ const StyledView=styled.View`
   padding-bottom: 2%;  
 `;
 
-export const EditListPage =() => {
+export const EditListPage =({ navigation }) => {
     const renderAlbum=({item})=>(
         <StyledView>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('EditPage')}>
                 <Container>
                     <Album state={'PLAY_SMALL'} coverURL={{uri: item.coverURL}} artist={item.artist} liked={item.liked} title={item.title}/>
                 </Container>
