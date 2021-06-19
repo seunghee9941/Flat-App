@@ -31,25 +31,25 @@ export const RecordPage = ({toggleButton, navigation}) => {
     };
 
     useEffect(() => {
-        //init();
+        init();
 
     }, []);
 
-    let model;
-
-    async function loadModel(){
-
-        await tf.ready();
-        console.log("tf is ready!");
-
-        const modelJSON = require('../../assets/model/model.json');
-        const modelWeights1 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard1of3.bin');
-        const modelWeights2 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard2of3.bin');
-        const modelWeights3 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard3of3.bin');
-
-        model=await tf.loadLayersModel(bundleResourceIO(modelJSON, [modelWeights1,modelWeights2,modelWeights3]));
-        console.log("Model loaded!");
-    }
+    // let model;
+    //
+    // async function loadModel(){
+    //
+    //     await tf.ready();
+    //     console.log("tf is ready!");
+    //
+    //     const modelJSON = require('../../assets/model/model.json');
+    //     const modelWeights1 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard1of3.bin');
+    //     const modelWeights2 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard2of3.bin');
+    //     const modelWeights3 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard3of3.bin');
+    //
+    //     model=await tf.loadLayersModel(bundleResourceIO(modelJSON, [modelWeights1,modelWeights2,modelWeights3]));
+    //     console.log("Model loaded!");
+    // }
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -147,7 +147,7 @@ export const RecordPage = ({toggleButton, navigation}) => {
                     <MaterialCommunityIcons name="microphone-settings" size={50} color="white"/>}
             </StyledPress>
             <Button title={"START SOUND"} onPress={playSound}/>
-            <Button title={"Load"} onPress={loadModel}/>
+            {/*<Button title={"Load"} onPress={loadModel}/>*/}
         </Container>
     );
 }
