@@ -26,7 +26,7 @@ const Container = styled.ScrollView`
   border-width: 1px;
   flex-direction: row;
   border-bottom-color: #8E8E8E;
-    flex: 1;
+  flex: 1;
 `;
 
 const ParentContainer = styled.View`
@@ -67,8 +67,8 @@ const getLeft = (index) => {
 }
 
 const notes = ["C4", "F4", "G5", "D4", "B4", "D4", "C3", "F4", "C6", "D4", "C5", "C4", "F4", "A4", "D4", "G4"];
-const X = notes.map((note) => getTop(note)*2)
-const Y = notes.map((note, index) => getLeft(index))
+const X = notes.map((note, index) => getLeft(index))
+const Y = notes.map((note) => getTop(note)*2)
 const result = X.map((x, i) => {
     return [x, Y[i]]
 })
@@ -147,4 +147,3 @@ const styles = StyleSheet.create({
         fontSize: 10,
     },
 });
-

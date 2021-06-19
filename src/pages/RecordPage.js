@@ -105,7 +105,6 @@ export const RecordPage = ({toggleButton, navigation}) => {
         }
     }
 
-
     React.useEffect(() => {
         return sound
             ? () => {
