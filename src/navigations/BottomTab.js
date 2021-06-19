@@ -26,8 +26,8 @@ const IconLabel = styled.Text`
 
 const TabIcon = ({name, color, text, focused, center})=> {
     return (
-      <IconView center={center} color={focused ? 'white' : 'black'}>
-          {center ? <AntDesign name="plus" size={24} color={focused ? 'black' : 'white'} />
+      <IconView center={center} color={focused ? 'white' : '#101010'}>
+          {center ? <AntDesign name="plus" size={24} color={focused ? '#101010' : 'white'} />
             :
             <><MaterialCommunityIcons name={name} color={color} size={24}/>
                 <IconLabel>{text}</IconLabel></>}

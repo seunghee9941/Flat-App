@@ -1,9 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from 'styled-components/native';
-import {Image, Text, Switch, Button, View, Dimensions, KeyboardAvoidingView} from "react-native";
+import {
+    Image,
+    Text,
+    Switch,
+    Button,
+    View,
+    Dimensions,
+    KeyboardAvoidingView,
+    TouchableOpacity,
+    Platform
+} from "react-native";
 import LargeSquareInput from "../components/Input/LargeSquareInput";
 import {ProfileImage} from "../components/ProfileImage";
-
+import * as ImagePicker from 'expo-image-picker';
 
 const Container = styled.View`
   flex:1;
@@ -49,6 +59,33 @@ const Introduce=styled.View`
 export const ProfileEditPage =({navigation}) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [image, setImage] = useState('https://reactnative.dev/img/tiny_logo.png');
+
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const {status} = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Sorry, we need camera roll permissions to make this work!');
+                }
+            }
+        })();
+    }, []);
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [1, 1],
+            quality: 1,
+        });
+
+        console.log(result);
+
+        if (!result.cancelled) {
+            setImage(result.uri);
+        }
+    };
 
     return (
 
@@ -58,8 +95,11 @@ export const ProfileEditPage =({navigation}) => {
                 style={{ flex: 1 }}
             >
             <ProfileView>
-                <ProfileImage size={'LARGE'} imgURL="https://reactnative.dev/img/tiny_logo.png"/>
+                <TouchableOpacity onPress={pickImage}>
+                    <ProfileImage size={'LARGE'} imgURL={{uri : image}}/>
+                </TouchableOpacity>
                 <Text style={{color: 'white'}}>프로필 설정</Text>
+
             </ProfileView>
             <UserView>
                 <StyledText>로그인 정보</StyledText>

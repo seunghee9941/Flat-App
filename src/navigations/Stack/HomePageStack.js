@@ -8,14 +8,14 @@ const Stack = createStackNavigator();
 
 export const HomeStackNavigation = () => {
     return (
-        <Stack.Navigator
+        <Stack.Navigatofbr
             initialRouteName="Home"
             screenOptions={{
                 cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                 headerStyle: {
                     backgroundColor: '#101010',
                     elevation: 0,
-                    borderBottomColor: 'white',
+                    borderBottomColor: '#8E8E8E',
                     borderBottomWidth: 1
                 }
             }}>
@@ -27,6 +27,6 @@ export const HomeStackNavigation = () => {
                 headerTitle: <Logo/>,
                 headerTitleAlign: "center",
             }}/>
-        </Stack.Navigator>
+        </Stack.Navigatofbr>
     )
 };

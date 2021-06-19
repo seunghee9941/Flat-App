@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {useLayoutEffect} from "react";
-import {Image, Switch, Text, TouchableOpacity} from "react-native";
+import {useEffect, useLayoutEffect, useState} from "react";
+import {Image, Platform, Switch, Text, TouchableOpacity} from "react-native";
 import styled from "styled-components/native";
 import LargeSquareInput from "../components/Input/LargeSquareInput";
 import {AntDesign, MaterialCommunityIcons} from "@expo/vector-icons";
 import UnderLineInput from "../components/Input/UnderLineInput";
+import * as ImagePicker from 'expo-image-picker';
 
 const ParentContainer = styled.View`
   background-color: #101010;
@@ -45,6 +46,34 @@ const EditText = styled.Text`
 const EditSavePage = ({navigation}) => {
     const [isEnabled, setIsEnabled] = React.useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+    const [image, setImage] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const {status} = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Sorry, we need camera roll permissions to make this work!');
+                }
+            }
+        })();
+    }, []);
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [1, 1],
+            quality: 1,
+        });
+
+        console.log(result);
+
+        if (!result.cancelled) {
+            setImage(result.uri);
+        }
+    };
+
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -74,15 +103,17 @@ const EditSavePage = ({navigation}) => {
 
     return (
         <ParentContainer>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={pickImage}>
                 <PhotoView>
-                    <Image source={require('../../assets/images/dla.png')}
-                           style={{width: 200, height: 200}}/>
+                    {
+                        // image && <Image source={{uri: image}} style={{width: 200, height: 200}}/>
+                        <Image source={image ? { uri: image } : require('../../assets/images/dla.png')} style={{width: 200, height: 200}} />
+                    }
                 </PhotoView>
             </TouchableOpacity>
             <EditView>
                 <EditText>제목</EditText>
-                <UnderLineInput keyType="done" nextRef={null} icon={false}/>
+                <UnderLineInput keyType="done" nextRef={null} icon={false} state="normal"/>
             </EditView>
             <EditView>
                 <EditText>설명</EditText>

@@ -1,47 +1,43 @@
 import React from "react";
 import styled from 'styled-components/native';
 import Logo from "../components/Logo";
-import { FlatList, TouchableOpacity } from "react-native";
+import {FlatList, SafeAreaView, TouchableOpacity} from "react-native";
 import { Album } from "../components/Album";
 
-const Container = styled.View`
-  justify-content: center;
-  align-items: center;
-  margin: ${props => props.index%2 === 1 ? "20% 0 0 5%" : "20% 5% 0 0"};
-`;
-
-const ParentContainer = styled.SafeAreaView`
-  flex: 1;
-  background-color: #101010;
-`;
-
-const StyledView=styled.View`
+const RenderAlbumView = styled.View`
   flex-direction: row;
   justify-content: center;
   width: 50%;
 `;
 
+const AlbumWrapper = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin: ${props => props.index%2 === 1 ? "20% 0 0 5%" : "20% 5% 0 0"};
+`;
+
+
 export const CommunityPage =({ navigation }) => {
     const renderAlbum=({item})=>(
-        <StyledView>
+        <RenderAlbumView>
             <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
-                <Container index={item.id}>
+                <AlbumWrapper index={item.id}>
                     <Album state="LIKE_LARGE" title={item.title} description={item.description} time={item.time} artist={item.artist} liked={item.liked}
-                    coverURL='https://rereco.co/wp-content/uploads/2021/02/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA-2021-02-03-%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE-4.55.06.jpg'
+                    coverURL={{uri:'https://rereco.co/wp-content/uploads/2021/02/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA-2021-02-03-%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE-4.55.06.jpg'}}
                     />
-                </Container>
+                </AlbumWrapper>
             </TouchableOpacity>
-        </StyledView>
+        </RenderAlbumView>
     );
 
     return (
-        <ParentContainer>
+        <SafeAreaView style={{flex: 1, backgroundColor:"#101010"}}>
             <FlatList data={albums}
                 renderItem={renderAlbum}
                       keyExtractor={(item)=> item.id} //수정
                       numColumns={2}
             />
-        </ParentContainer>
+        </SafeAreaView>
     );
 };
 
@@ -52,7 +48,7 @@ const albums = [
         description: '깔깔깔',
         time: '1:20',
         artist:'보경',
-        liked: true
+        liked: false
     },
     {
         id: "2",
@@ -68,7 +64,7 @@ const albums = [
         description: '슬퍼!',
         time: '1:20',
         artist:'보경',
-        liked: true
+        liked: false
     },
     {
         id: "4",
@@ -76,7 +72,7 @@ const albums = [
         description: '뭘봐?',
         time: '1:20',
         artist:'보경',
-        liked: true
+        liked: false
     },
     {
         id: "5",
@@ -99,7 +95,7 @@ const albums = [
         description: '흐애애앵',
         time: '1:20',
         artist:'보경',
-        liked: true
+        liked: false
     },{
         id: "8",
         title: '슬픔이',

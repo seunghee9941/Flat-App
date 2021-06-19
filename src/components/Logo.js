@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 const LogoView = styled.View`
   justify-content: center;
   align-self: stretch;
-  height: 52px;
+  
   align-items: center;
   background-color: #101010;
   padding: 0 10px;

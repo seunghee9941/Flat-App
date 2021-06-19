@@ -127,6 +127,8 @@ export const RecordPage = ({toggleButton, navigation}) => {
     );
 }
 
+export default RecordPage;
+
 const Container = styled.View`
   flex: 1;
   justify-content: center;
