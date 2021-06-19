@@ -4,7 +4,8 @@ import { FlatList, TouchableOpacity } from "react-native";
 import { Album } from "../components/Album";
 
 const Container = styled.View`
-  padding-left: 5%;
+  padding-left: 5px;
+  
 `;
 const Container2 = styled.View`
   height: 50px;

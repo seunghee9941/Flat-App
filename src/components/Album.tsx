@@ -37,7 +37,7 @@ const AlbumHorizontalContainer = styled.View<StyleProps>`
   width: auto;
   height: ${props => props.size}px;
   flex-direction: row;
-  margin: 3% 0 3% 0;
+  margin: 3px 0 3px 0;
 `;
 
 const AlbumContainer = styled.View<StyleProps>`
