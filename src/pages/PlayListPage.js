@@ -1,5 +1,5 @@
-import React from "react";
-import {Dimensions, TouchableOpacity, FlatList, View, SafeAreaView, Text} from 'react-native';
+import React, {useLayoutEffect} from "react";
+import { Dimensions, TouchableOpacity, FlatList, View, SafeAreaView, Text} from 'react-native';
 import styled from 'styled-components/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import {Album} from "../components/Album";
@@ -27,12 +27,12 @@ const TitleWrapper = styled.View`
   flex-direction: row;
 `;
 
+const FirstRoute = ({navigation}) => {
 
-const FirstRoute = () => {
-    const renderAlbum = ({item}) => (
+    const renderAlbum=({item})=>(
         <RenderAlbumView>
-            <TouchableOpacity>
-                <AlbumWrapper>
+            <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
+                <AlbumWrapper index={item.id}>
                     <Album state="LIKE_LARGE" title={item.title} coverURL={item.coverURL} description={item.description}
                            time={item.time} artist={item.artist} isPublic={item.isPublic}/>
                 </AlbumWrapper>
@@ -51,11 +51,11 @@ const FirstRoute = () => {
     );
 };
 
-const SecondRoute = () => {
-    const renderAlbum = ({item}) => (
+const SecondRoute = ({navigation}) => {
+    const renderAlbum=({item})=>(
         <RenderAlbumView>
-            <TouchableOpacity>
-                <AlbumWrapper>
+            <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
+                <AlbumWrapper index={item.id}>
                     <Album state="LIKE_LARGE" title={item.title} coverURL={item.coverURL} description={item.description}
                            time={item.time} artist={item.artist} liked={item.liked}/>
                 </AlbumWrapper>
@@ -76,17 +76,23 @@ const SecondRoute = () => {
 };
 
 
-export const PlayListPage = () => {
+export const PlayListPage =({navigation}) =>{
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: 'BGM'},
         {key: 'second', title: '스크랩'},
     ]);
 
-    const renderScene = SceneMap({
-        first: FirstRoute,
-        second: SecondRoute,
-    });
+    const renderScene=({route})=>{
+       switch (route.key){
+           case 'first':
+               return <FirstRoute navigation={navigation}/>
+           case 'second':
+               return <SecondRoute navigation={navigation}/>
+           default:
+               return null;
+       }
+    };
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: "#101010"}}>

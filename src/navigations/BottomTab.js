@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
-import {PlayListPage} from "../pages/PlayListPage";
 import MyPageStack from "./Stack/MyPageStack";
 import {CommunityStackNavigation} from "./Stack/CommunityPageStack";
+import {PlayListStackNavigation} from "./Stack/PlayListPageStack";
 import ComposePageStack from "./Stack/ComposePageStack";
 import EditStackNavigation from "./Stack/EditPageStack"
 import { AntDesign } from '@expo/vector-icons';
@@ -55,7 +55,7 @@ const TabNavigation = () => {
                showLabel: false
            }}
         >
-            <BottomTab.Screen name="HomePage" component={PlayListPage} options={{
+            <BottomTab.Screen name="PlayListPage" component={PlayListStackNavigation} options={{
                 tabBarIcon: props=> TabIcon({...props, name: props.focused? 'music-box-multiple':'music-box-multiple-outline', text: '보관함', focused: props.focused}),
             }}/>
             <BottomTab.Screen name="EditPage" component={EditStackNavigation} options={{
