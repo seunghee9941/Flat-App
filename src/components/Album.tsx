@@ -37,7 +37,7 @@ const AlbumHorizontalContainer = styled.View<StyleProps>`
   width: auto;
   height: ${props => props.size}px;
   flex-direction: row;
-  margin: 3% 0 3% 0;
+  margin: 3px 0 3px 0;
 `;
 
 const AlbumContainer = styled.View<StyleProps>`
@@ -152,7 +152,7 @@ export const Album = ({state, liked, isPublic, coverURL, title, time, artist, de
 };
 
 Album.defaultProps = {
-  coverURL: {uri:'https://reactnative.dev/img/tiny_logo.png'},
+  coverURL: require("../../assets/images/profileImage/albumDefaultImage.png"),
   liked: false,
   isPublic: true,
   title: '제목',
