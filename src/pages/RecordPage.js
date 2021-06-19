@@ -5,6 +5,8 @@ import {useEffect, useLayoutEffect,} from "react";
 import {AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import * as FileSystem from "expo-file-system/build/FileSystem";
 import {Button} from "react-native";
+import * as tf from '@tensorflow/tfjs'
+import {bundleResourceIO, fetch} from "@tensorflow/tfjs-react-native";
 
 // 녹음하기 버튼 누르면 ComposePage -> 녹음
 // 녹음에서 완료버튼 -> EditPage
@@ -17,6 +19,9 @@ export const RecordPage = ({toggleButton, navigation}) => {
     const [sound, setSound] = React.useState();
     const [state, setState] = React.useState({recordingT: false});
 
+
+
+
     toggleButton = () => {
         if (state.recordingT) {
             setState({recordingT: false})
@@ -26,8 +31,25 @@ export const RecordPage = ({toggleButton, navigation}) => {
     };
 
     useEffect(() => {
-        init();
+        //init();
+
     }, []);
+
+    let model;
+
+    async function loadModel(){
+
+        await tf.ready();
+        console.log("tf is ready!");
+
+        const modelJSON = require('../../assets/model/model.json');
+        const modelWeights1 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard1of3.bin');
+        const modelWeights2 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard2of3.bin');
+        const modelWeights3 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard3of3.bin');
+
+        model=await tf.loadLayersModel(bundleResourceIO(modelJSON, [modelWeights1,modelWeights2,modelWeights3]));
+        console.log("Model loaded!");
+    }
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -58,6 +80,7 @@ export const RecordPage = ({toggleButton, navigation}) => {
 
     async function init() {
         await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'flat');
+
     }
 
     async function startRecording() {
@@ -124,6 +147,7 @@ export const RecordPage = ({toggleButton, navigation}) => {
                     <MaterialCommunityIcons name="microphone-settings" size={50} color="white"/>}
             </StyledPress>
             <Button title={"START SOUND"} onPress={playSound}/>
+            <Button title={"Load"} onPress={loadModel}/>
         </Container>
     );
 }

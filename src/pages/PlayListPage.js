@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import { Dimensions, TouchableOpacity, FlatList} from 'react-native';
 import styled from 'styled-components/native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
@@ -14,51 +14,6 @@ const AlbumContainer = styled.View`
   margin:10% 2% 0 2%;
   align-items: center;
 `;
-const FirstRoute = () => {
-    const renderAlbum=({item})=>(
-        <StyledView>
-            <TouchableOpacity>
-                <AlbumContainer>
-                    <Album state="LIKE_LARGE" title={item.title} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
-                </AlbumContainer>
-            </TouchableOpacity>
-        </StyledView>
-        )
-    return(
-        <ParentContainer>
-            <FlatList data={albums}
-                      renderItem={renderAlbum}
-                      keyExtractor={(item)=> item.id} //수정
-                      style={{margin:20}}
-                      numColumns={2}
-            />
-        </ParentContainer>
-    );
-};
-
-const SecondRoute = () => {
-    const renderAlbum=({item})=>(
-        <StyledView>
-            <TouchableOpacity>
-                <AlbumContainer>
-                    <Album state="LIKE_LARGE" title={item.title} coverURL={item.coverURL} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
-                </AlbumContainer>
-            </TouchableOpacity>
-        </StyledView>
-    );
-
-    return(
-        <ParentContainer>
-            <FlatList data={albums}
-                      renderItem={renderAlbum}
-                      keyExtractor={(item)=> item.id} //수정
-                      style={{margin:20}}
-                      numColumns={2}
-            />
-        </ParentContainer>
-    );
-};
-
 const initialLayout = {width: Dimensions.get('window').width};
 const Container = styled.View`
   justify-content: center;
@@ -80,17 +35,70 @@ const StyledText=styled.Text`
   color: #ffffff;
 `;
 
-export const PlayListPage =() =>{
+const FirstRoute = ({navigation}) => {
+
+    const renderAlbum=({item})=>(
+        <StyledView>
+            <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
+                <AlbumContainer index={item.id}>
+                    <Album state="LIKE_LARGE" title={item.title} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
+                </AlbumContainer>
+            </TouchableOpacity>
+        </StyledView>
+        )
+    return(
+        <ParentContainer>
+            <FlatList data={albums}
+                      renderItem={renderAlbum}
+                      keyExtractor={(item)=> item.id} //수정
+                      style={{margin:20}}
+                      numColumns={2}
+            />
+        </ParentContainer>
+    );
+};
+
+const SecondRoute = ({navigation}) => {
+    const renderAlbum=({item})=>(
+        <StyledView>
+            <TouchableOpacity onPress={() => navigation.navigate('CommunityDetail')}>
+                <AlbumContainer index={item.id}>
+                    <Album state="LIKE_LARGE" title={item.title} coverURL={item.coverURL} description={item.description} time={item.time} artist={item.artist} liked={item.liked}/>
+                </AlbumContainer>
+            </TouchableOpacity>
+        </StyledView>
+    );
+
+    return(
+        <ParentContainer>
+            <FlatList data={albums}
+                      renderItem={renderAlbum}
+                      keyExtractor={(item)=> item.id} //수정
+                      style={{margin:20}}
+                      numColumns={2}
+            />
+        </ParentContainer>
+    );
+};
+
+
+export const PlayListPage =({navigation}) =>{
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         {key: 'first', title: 'BGM'},
         {key: 'second', title: '스크랩'},
     ]);
 
-    const renderScene = SceneMap({
-        first: FirstRoute,
-        second: SecondRoute,
-    });
+    const renderScene=({route})=>{
+       switch (route.key){
+           case 'first':
+               return <FirstRoute navigation={navigation}/>
+           case 'second':
+               return <SecondRoute navigation={navigation}/>
+           default:
+               return null;
+       }
+    };
 
     return (
         <ParentContainer>
