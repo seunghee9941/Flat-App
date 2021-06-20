@@ -4,23 +4,29 @@ import styled from 'styled-components/native';
 import {useEffect, useLayoutEffect,} from "react";
 import {AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import * as FileSystem from "expo-file-system/build/FileSystem";
-import {View} from "react-native";
-//import * as tf from '@tensorflow/tfjs'
-//import {bundleResourceIO, fetch} from "@tensorflow/tfjs-react-native";
+import {SafeAreaView, View} from "react-native";
 
 // 녹음하기 버튼 누르면 ComposePage -> 녹음
 // 녹음에서 완료버튼 -> EditPage
 // 녹음에서 취소버튼 -> ComposePage
 // 보내야할 것은 몇분몇초
 
+const RecordButtonWrapper = styled.Pressable`
+  width: 222px;
+  height: 222px;
+  border-radius: 111px;
+  border-width: 15px;
+  border-color: #51CDDE;
+  align-items: center;
+  justify-content: center;
+`;
+
+
 let rr = "";
 export const RecordPage = ({toggleButton, navigation}) => {
     const [recording, setRecording] = React.useState();
     const [sound, setSound] = React.useState();
     const [state, setState] = React.useState({recordingT: false});
-
-
-
 
     toggleButton = () => {
         if (state.recordingT) {
@@ -34,22 +40,6 @@ export const RecordPage = ({toggleButton, navigation}) => {
         init();
 
     }, []);
-
-    // let model;
-    //
-    // async function loadModel(){
-    //
-    //     await tf.ready();
-    //     console.log("tf is ready!");
-    //
-    //     const modelJSON = require('../../assets/model/model.json');
-    //     const modelWeights1 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard1of3.bin');
-    //     const modelWeights2 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard2of3.bin');
-    //     const modelWeights3 = require('C:/Users/user/INR-peace/Flat-App/assets/model/group1-shard3of3.bin');
-    //
-    //     model=await tf.loadLayersModel(bundleResourceIO(modelJSON, [modelWeights1,modelWeights2,modelWeights3]));
-    //     console.log("Model loaded!");
-    // }
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -137,37 +127,20 @@ export const RecordPage = ({toggleButton, navigation}) => {
     }, [sound]);
 
     return (
-        <Container>
-            <StyledPress
+        <SafeAreaView style={{flex: 1, backgroundColor: "#101010", justifyContent: "center", alignItems: "center"}}>
+            <RecordButtonWrapper
                 onPress={recording ? stopRecording : startRecording}
                 onPressOut={() => toggleButton()}>
                 {state.recordingT ?
                     <MaterialCommunityIcons name="stop" size={50} color="white"/> :
                     <MaterialCommunityIcons name="microphone-settings" size={50} color="white"/>}
-            </StyledPress>
+            </RecordButtonWrapper>
             <View style={{paddingTop:25}}>
                 <MaterialCommunityIcons name="play" size={40} color="white" onPress={playSound} />
             </View>
-            {/*<Button title={"Load"} onPress={loadModel}/>*/}
-        </Container>
+        </SafeAreaView>
     );
 }
 
 export default RecordPage;
 
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #101010;
-`;
-
-const StyledPress = styled.Pressable`
-  width: 222px;
-  height: 222px;
-  border-radius: 111px;
-  border-width: 15px;
-  border-color: #51CDDE;
-  align-items: center;
-  justify-content: center;
-`;

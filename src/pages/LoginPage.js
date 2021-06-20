@@ -2,24 +2,22 @@ import React, {useRef} from "react";
 import styled from 'styled-components/native';
 import UnderLineInput from "../components/Input/UnderLineInput";
 import {RoundButton} from "../components/Button/RoundButton";
-import {Dimensions, Image, KeyboardAvoidingView, Platform, ScrollView, Text} from "react-native";
+import {Dimensions, Image, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, Text} from "react-native";
 import {StyleSheet} from "react-native";
 
-const Container = styled.ScrollView`
-  flex:1;
-  background-color: #101010;
 
-`;
 const LogoView = styled.View`
   height: 100px;
   justify-content: center;
   align-items: center;
   background-color: #101010;
 `;
+
 const LoginView = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
 const styles = StyleSheet.create({
     center: {
         alignItems: 'center',
@@ -36,25 +34,24 @@ export const LoginPage =({ navigation }) => {
     const refPw = useRef(null);
 
     return (
-        <Container>
-            <ScrollView contentContainerStyle={styles.center} >
-                <KeyboardAvoidingView
-                    behavior={Platform.OS === "ios" ? "padding" : null}
-                    style={{ flex: 1 , alignItems: "center", justifyContent:"center"}}
-                >
-                    <LogoView>
-                        <Image source={require('../../assets/images/flat_logo_4x.png')} resizeMode="center"/>
-                    </LogoView>
-                    <LoginView>
-                        <UnderLineInput name="account-outline" state="Login" line='이메일' keyType="next" refName={refId} nextRef={refPw} icon={true}/>
-                        <UnderLineInput name="lock" state="Login" line='비밀번호' keyType="done" refName={refPw} nextRef={null} hide={true} icon={true}/>
-                        <RoundButton state="COLOR_SMALL" name="로그인" pageName="HomeTab" nav={navigation}/>
-                        <RoundButton state="GRAY_SMALL" name="회원가입" pageName="SignUpPage" nav={navigation}/>
-                        <Text style={{color:'#ffffff', marginTop:10}}>구글 계정으로 로그인</Text>
-                    </LoginView>
-                </KeyboardAvoidingView>
-            </ScrollView>
-        </Container>
-
+      <SafeAreaView style={{flex: 1, backgroundColor: "#101010"}}>
+          <ScrollView contentContainerStyle={styles.center} >
+                          <KeyboardAvoidingView
+                            behavior={Platform.OS === "ios" ? "padding" : null}
+                            style={{ flex: 1 , alignItems: "center", justifyContent:"center"}}
+                          >
+                              <LogoView>
+                                  <Image source={require('../../assets/images/flat_logo_4x.png')} resizeMode="center"/>
+                              </LogoView>
+                              <LoginView>
+                                  <UnderLineInput name="account-outline" state="Login" line='이메일' keyType="next" refName={refId} nextRef={refPw} icon={true}/>
+                                  <UnderLineInput name="lock" state="Login" line='비밀번호' keyType="done" refName={refPw} nextRef={null} hide={true} icon={true}/>
+                                  <RoundButton state="COLOR_SMALL" name="로그인" pageName="HomeTab" nav={navigation}/>
+                                  <RoundButton state="GRAY_SMALL" name="회원가입" pageName="SignUpPage" nav={navigation}/>
+                      <Text style={{color:'#ffffff', marginTop:10}}>구글 계정으로 로그인</Text>
+                  </LoginView>
+              </KeyboardAvoidingView>
+          </ScrollView>
+      </SafeAreaView>
     );
 };
