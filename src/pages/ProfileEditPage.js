@@ -90,7 +90,7 @@ export const ProfileEditPage =({navigation}) => {
             >
             <ProfileView>
                 <TouchableOpacity onPress={pickImage}>
-                    <ProfileImage size={'LARGE'} imgURL={ require('../../assets/images/profileImage/albumDefaultImage.png')}/>
+                    <ProfileImage size={'LARGE'} imgURL={ require('../../assets/images/profileImage/ProfileImage.png')}/>
                 </TouchableOpacity>
                 <Text style={{color: 'white'}}>프로필 설정</Text>
 

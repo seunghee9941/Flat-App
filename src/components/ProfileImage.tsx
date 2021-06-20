@@ -37,5 +37,5 @@ export const ProfileImage = ({size, imgURL}: ProfileProps) => {
 };
 
 ProfileImage.defaultProps = {
-  imgURL: {uri: 'https://reactnative.dev/img/tiny_logo.png'},
+  imgURL: require("../../assets/images/profileImage/albumDefaultImage.png"),
 }

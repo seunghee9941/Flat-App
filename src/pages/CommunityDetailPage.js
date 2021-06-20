@@ -54,8 +54,8 @@ const CommentContainer = styled.View`
     left: 7.5%;
 `;
 
-const CommunityIcon = ({ name, size, color }) => {
-    const [isClicked, setIsClicked] = useState(false);
+const CommunityIcon = ({ name, size, color, liked }) => {
+    const [isClicked, setIsClicked] = useState(liked);
     return (
         <Pressable onPress={()=> {setIsClicked(!isClicked)}}>
             {isClicked ?
@@ -73,14 +73,14 @@ export const CommunityDetailPage = () => {
             <>
                 <HeaderContainer>
                     <AlbumContainer>
-                        <Album state={"PLAY_LARGE"} coverURL={require("../../assets/images/communityImage/communityImage8.jpg")} />
+                        <Album state={"PLAY_LARGE"} coverURL={album.coverURL} title={album.title} artist={album.artist} time={album.time} description={album.description} />
                         <IconContainer>
-                            <CommunityIcon name="heart" size={24} color="#ffffff"/>
+                            <CommunityIcon name="heart" size={24} color="#ffffff" liked={album.liked}/>
                             <CommunityIcon name="bookmark" size={22} color="#ffffff" />
                         </IconContainer>
                     <CountContainer>
                         <CountText>댓글 {comments.length}개</CountText>
-                        <CountText>좋아요 {comments.length}개</CountText>
+                        <CountText>좋아요 3개</CountText>
                     </CountContainer>
                     </AlbumContainer>
                 </HeaderContainer>
@@ -90,7 +90,7 @@ export const CommunityDetailPage = () => {
 
     const renderComment = ({item}) => (
         <CommentContainer>
-            <Comment user={item.id} comment={item.comment}/>
+            <Comment user={item.id} comment={item.comment} imgURL={item.imgURL}/>
         </CommentContainer>
     )
 
@@ -107,29 +107,41 @@ export const CommunityDetailPage = () => {
     );
 };
 
+const album = {
+    coverURL: require("../../assets/images/communityImage/communityImage1.jpg"),
+    id: "1",
+    title: '갈기를 가지고 싶어',
+    description: '라이언 캐릭터에서 영감을 받은 자작곡입니다. 많이 들어주세요~!',
+    time: '0:25',
+    artist: '이너피스',
+    liked: true
+}
+
+
 const comments = [
     {
+        imgURL: require("../../assets/images/CommentImage/CommentImage1.jpg"),
         id: '옆집토끼',
-        comment: '순간 잔디에..'
+        comment: '잘 듣고 갑니다!'
     },
     {
-        id: '뒷집토끼',
-        comment: '감사합니다'
+        imgURL: require("../../assets/images/CommentImage/CommentImage2.jpg"),
+        id: '작알못',
+        comment: '저도 갈기 가지고 싶네요'
     },
     {
-        id: '옆집토끼2',
-        comment: '순간 잔디에..'
+        imgURL: require("../../assets/images/CommentImage/CommentImage3.jpg"),
+        id: 'rabbit',
+        comment: 'Good'
     },
     {
-        id: '뒷집토끼2',
-        comment: '감사합니다'
+        imgURL: require("../../assets/images/profileImage/ProfileImage.png"),
+        id: '이너피스',
+        comment: '댓글 감사합니다!'
     },
     {
-        id: '옆집토끼3',
-        comment: '순간 잔디에..'
+        imgURL: require("../../assets/images/CommentImage/CommentImage5.jpg"),
+        id: '나무늘보',
+        comment: '뒷짐진 라이언 이미지가 너무 귀여워요~!'
     },
-    {
-        id: '뒷집토끼3',
-        comment: '감사합니다'
-    }
 ];
