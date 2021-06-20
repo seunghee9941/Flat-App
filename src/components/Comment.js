@@ -26,11 +26,11 @@ const CommentText = styled.Text`
     font-size: 12px;
 `;
 
-export const Comment = ({ user, comment }) => {
+export const Comment = ({ user, comment, imgURL }) => {
     return (
         <View>
             <ProfileView>
-                <ProfileImage size={'SMALL'} imgURL={ require('../../assets/images/communityImage/communityImage9.jpg')}/>
+                <ProfileImage size={'SMALL'} imgURL={ imgURL }/>
                 <ProfileName>{user}</ProfileName>
             </ProfileView>
             <CommentView>
