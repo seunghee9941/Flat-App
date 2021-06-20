@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {useEffect, useLayoutEffect,} from "react";
 import {AntDesign, MaterialCommunityIcons} from '@expo/vector-icons';
 import * as FileSystem from "expo-file-system/build/FileSystem";
-import {SafeAreaView, View} from "react-native";
+import {Pressable, SafeAreaView, View} from "react-native";
 
 // 녹음하기 버튼 누르면 ComposePage -> 녹음
 // 녹음에서 완료버튼 -> EditPage
@@ -21,6 +21,11 @@ const RecordButtonWrapper = styled.Pressable`
   justify-content: center;
 `;
 
+const PlayText = styled.Text`
+  font-size: 18px;
+  color: white;
+  text-decoration: underline;
+`;
 
 let rr = "";
 export const RecordPage = ({toggleButton, navigation}) => {
@@ -136,7 +141,9 @@ export const RecordPage = ({toggleButton, navigation}) => {
                     <MaterialCommunityIcons name="microphone-settings" size={50} color="white"/>}
             </RecordButtonWrapper>
             <View style={{paddingTop:25}}>
-                <MaterialCommunityIcons name="play" size={40} color="white" onPress={playSound} />
+                <Pressable onPress={playSound}>
+                    <PlayText>들어보기</PlayText>
+                </Pressable>
             </View>
         </SafeAreaView>
     );
