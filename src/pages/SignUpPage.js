@@ -60,7 +60,7 @@ export const SignUpPage =({ navigation }) => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: "#101010", justifyContent: "center", alignItems: "center"}}>
             <LogoView>
-                <Image source={require('../../assets/images/flat_logo_4x.png')} resizeMode="center"/>
+                <Image source={require('../../assets/images/flat_logo_4x.png')} resizeMode="center" style={{width: 150, height: 120}}/>
             </LogoView>
             <RegisterView>
                 <UnderLineInput name={'email-outline'} state="Email" setValue={setEmail}
