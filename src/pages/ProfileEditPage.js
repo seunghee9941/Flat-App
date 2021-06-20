@@ -53,7 +53,7 @@ const IntroduceItemWrapper = styled.View`
 export const ProfileEditPage =({navigation}) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    const [image, setImage] = useState('https://reactnative.dev/img/tiny_logo.png');
+    const [image, setImage] = useState('');
 
     useEffect(() => {
         (async () => {
@@ -74,10 +74,11 @@ export const ProfileEditPage =({navigation}) => {
             quality: 1,
         });
 
-        console.log(result);
+
 
         if (!result.cancelled) {
             setImage(result.uri);
+          console.log(result);
         }
     };
 
@@ -90,7 +91,7 @@ export const ProfileEditPage =({navigation}) => {
           >
             <ProfileView>
               <TouchableOpacity onPress={pickImage}>
-                <ProfileImage size={'LARGE'} imgURL={ require('../../assets/images/profileImage/ProfileImage.png')}/>
+                <ProfileImage size={'LARGE'} imgURL={ image ? {uri: image} : require('../../assets/images/profileImage/ProfileImage.png')}/>
               </TouchableOpacity>
               <Text style={{color: 'white'}}>프로필 설정</Text>
 

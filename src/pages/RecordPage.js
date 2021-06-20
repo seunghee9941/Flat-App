@@ -74,7 +74,7 @@ export const RecordPage = ({toggleButton, navigation}) => {
     }, []);
 
     async function init() {
-        await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'flat');
+        // await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'flat');
 
     }
 

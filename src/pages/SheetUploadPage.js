@@ -32,7 +32,7 @@ const SheetUploadPage = ({navigation}) => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
-            aspect: [9, 16],
+            aspect: [3, 4],
             quality: 1,
         });
 
