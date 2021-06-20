@@ -52,10 +52,9 @@ export const ProfilePage = ({navigation}) => {
 
         <Container>
             <UserFirstView>
-                <StyledText>User Name</StyledText>
+                <StyledText>이너피스</StyledText>
                 <UserSecondView>
-                    <ProfileImage size={'MEDIUM'}
-                                  imgURL={require('../../assets/images/profileImage/albumDefaultImage.png')}/>
+                    <ProfileImage size={'MEDIUM'} imgURL={require('../../assets/images/profileImage/ProfileImage.png')}/>
                     <UserThirdView>
                         <Text style={{color: '#ffffff', padding: 5}}>이제 작곡에 입문한 병아리 작곡가 입니다. {"\n"}피드백 환영합니다!</Text>
                         <View style={{width: 85, borderWidth: 1.5, borderColor: 'white', borderRadius: 3}}>
