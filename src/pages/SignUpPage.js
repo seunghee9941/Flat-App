@@ -65,7 +65,7 @@ export const SignUpPage =({ navigation }) => {
     return (
         <ParentContainer>
             <LogoView>
-                <Image source={require('../../assets/images/logo.png')}/>
+                <Image source={require('../../assets/images/flat_logo_4x.png')} resizeMode="center"/>
             </LogoView>
             <RegisterView>
                 <UnderLineInput name={'email-outline'} state="Email" setValue={setEmail}
