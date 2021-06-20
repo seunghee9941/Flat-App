@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components/native';
-import { FlatList, Text, TouchableOpacity, View, Button } from "react-native";
-import { Album } from "../components/Album";
-import { ProfileImage } from "../components/ProfileImage";
+import {FlatList, Text, TouchableOpacity, View, Button} from "react-native";
+import {Album} from "../components/Album";
+import {ProfileImage} from "../components/ProfileImage";
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -76,7 +76,8 @@ export const ProfilePage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description}  coverURL={item.coverURL} isPublic={true}/>
+                                    <Album title={item.title} state={item.state} description={item.description}
+                                           coverURL={item.coverURL} isPublic={true}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -94,7 +95,8 @@ export const ProfilePage = ({navigation}) => {
                         return (
                             <TouchableOpacity>
                                 <AlbumView>
-                                    <Album title={item.title} state={item.state} description={item.description} liked={true} coverURL={item.coverURL}/>
+                                    <Album title={item.title} state={item.state} description={item.description}
+                                           liked={true} coverURL={item.coverURL}/>
                                 </AlbumView>
                             </TouchableOpacity>
                         );
@@ -109,40 +111,40 @@ const myAlbums = [
     {
         coverURL: require("../../assets/images/profileImage/profilePage1.png"),
         id: "1",
-        title: '노래1',
+        title: 'INNERPEACE',
         state: 'LIKE_SMALL',
         description: '깔깔깔',
-        time: '1:20',
-        artist: '보경',
-        liked: true
+        time: '2:15',
+        artist: '작곡가',
+        isPublic: false
     },
     {
-        coverURL: require("../../assets/images/profileImage/profilePage2.jpg"),
+        coverURL: require("../../assets/images/PlayListImage/playListImage2.jpg"),
         id: "2",
-        title: '곰인형',
+        title: '디즈니 OST 모음',
         state: 'LIKE_SMALL',
         description: '흐애애앵',
         time: '1:20',
-        artist: '보경',
-        liked: true
+        artist: '작곡가',
+        isPublic: false
     },
     {
-        coverURL: require("../../assets/images/profileImage/profilePage3.jpg"),
+        coverURL: require("../../assets/images/PlayListImage/playListImage3.jpg"),
         id: "3",
-        title: '우주',
+        title: '청량한 노래',
         state: 'LIKE_SMALL',
         description: '슬퍼!',
         time: '1:20',
-        artist: '보경',
-        liked: true
+        artist: '작곡가',
+        isPublic: false
     },
 ];
 
 const scrapedAlbums = [
     {
-        coverURL: require("../../assets/images/profileImage/profilePage4.jpg"),
+        coverURL: require("../../assets/images/EditListImage/EditListImage7.jpg"),
         id: "1",
-        title: '나랑 사귀자',
+        title: '씨티팝',
         state: 'LIKE_SMALL',
         description: '깔깔깔',
         time: '1:20',
@@ -150,9 +152,9 @@ const scrapedAlbums = [
         liked: true
     },
     {
-        coverURL: require("../../assets/images/profileImage/profilePage5.jpg"),
+        coverURL: require("../../assets/images/EditListImage/EditListImage8.png"),
         id: "2",
-        title: '여정윤',
+        title: 'cute song',
         state: 'LIKE_SMALL',
         description: '흐애애앵',
         time: '1:20',
