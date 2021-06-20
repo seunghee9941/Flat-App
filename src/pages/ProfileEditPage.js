@@ -15,12 +15,6 @@ import LargeSquareInput from "../components/Input/LargeSquareInput";
 import {ProfileImage} from "../components/ProfileImage";
 import * as ImagePicker from 'expo-image-picker';
 
-const Container = styled.View`
-  flex:1;
-  justify-content: center;
-  align-items: center;
-  background-color: #101010;
-`;
 const ParentContainer = styled.ScrollView`
   flex: 1;
   background-color: #101010;
