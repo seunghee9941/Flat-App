@@ -124,31 +124,74 @@ export const PlayListPage =({navigation}) =>{
 
 const myAlbums = [
     {
-        coverURL: require("../../assets/images/PlayListImage/playListImage1.jpg"),
+        coverURL: require("../../assets/images/profileImage/profilePage1.png"),
         id: "1",
-        title: '디즈니 OST 모음',
+        title: 'INNERPEACE',
         description: '깔깔깔',
         time: '2:15',
-        artist: '이승희',
-        isPublic: false
+        artist: '작곡가',
+        isPublic: true
     },
     {
         coverURL: require("../../assets/images/PlayListImage/playListImage2.jpg"),
         id: "2",
-        title: '노래 1',
+        title: '디즈니 OST 모음',
         description: '흐애애앵',
-        time: '1:20',
+        time: '0:25',
         artist: '작곡가',
-        isPublic: false
+        isPublic: true
     },
     {
         coverURL: require("../../assets/images/PlayListImage/playListImage3.jpg"),
         id: "3",
-        title: '무야호 Remix',
+        title: '청량한 노래',
         state: 'LIKE_LARGE',
         description: '흐애애앵',
-        time: '1:15',
-        artist: 'Soji',
+        time: '0:45',
+        artist: '작곡가',
+        isPublic: true
+    },
+    {
+        id: "4",
+        coverURL: require("../../assets/images/EditListImage/EditListImage4.jpg"),
+        title: '엘레강스한 노래',
+        description: '뭘봐?',
+        time: '0:15',
+        artist:'작곡가',
+        isPublic: false
+    },
+    {
+        id: "5",
+        coverURL: require("../../assets/images/EditListImage/EditListImage5.jpg"),
+        title: '멋쟁이 노래',
+        description: '흐애애앵',
+        time: '0:30',
+        artist:'작곡가',
+        isPublic: false
+    },
+    {
+        id: "6",
+        coverURL: require("../../assets/images/EditListImage/EditListImage6.png"),
+        title: '승희의 발라드',
+        description: '흐애애앵',
+        time: '0:33',
+        artist:'작곡가',
+        isPublic: false
+    },{
+        id: "7",
+        coverURL: require("../../assets/images/EditListImage/EditListImage7.jpg"),
+        title: '부드러운 노래',
+        description: '흐애애앵',
+        time: '0:15',
+        artist:'작곡가',
+        isPublic: false
+    },{
+        id: "8",
+        coverURL: require("../../assets/images/EditListImage/EditListImage8.png"),
+        title: 'land',
+        description: '흐애애앵',
+        time: '0:18',
+        artist:'작곡가',
         isPublic: false
     },
 ];
@@ -160,7 +203,7 @@ const likedAlbums = [
         title: '씨티팝',
         description: '깔깔깔',
         time: '2:15',
-        artist: '이승희',
+        artist: 'Soji',
         liked: true
     },
     {
@@ -169,17 +212,17 @@ const likedAlbums = [
         title: 'cute song',
         description: '흐애애앵',
         time: '1:20',
-        artist: '작곡가',
+        artist: '보경',
         liked: true
     },
     {
-        coverURL: require("../../assets/images/EditListImage/EditListImage9.jpg"),
+        coverURL: require("../../assets/images/profileImage/profilePage6.jpg"),
         id: "3",
-        title: 'land song',
+        title: '무야호 Remix',
         state: 'LIKE_LARGE',
         description: '흐애애앵',
         time: '1:15',
-        artist: 'Soji',
+        artist: '예진',
         liked: true
     },
 ];
