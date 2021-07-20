@@ -150,4 +150,3 @@ export const RecordPage = ({toggleButton, navigation}) => {
 }
 
 export default RecordPage;
-
